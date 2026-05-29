@@ -1,0 +1,33 @@
+{
+  "name": "application",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "rsbuild build --watch"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@emotion/css": "^11.13.5",
+    "@emotion/styled": "^11.14.1",
+    "@react-aria/focus": "^3.22.1",
+    "@react-aria/interactions": "^3.28.1",
+    "@reactuses/core": "^6.3.2",
+    "@rsbuild/core": "^2.0.8",
+    "@rsbuild/plugin-react": "^2.0.0",
+    "@rsbuild/plugin-svgr": "^2.0.2",
+    "@rsbuild/plugin-typed-css-modules": "^1.2.3",
+    "@types/facepaint": "^1.2.5",
+    "@types/react-dom": "^19.2.3",
+    "facepaint": "^1.2.1",
+    "react": "^19.2.6",
+    "react-aria-components": "^1.18.0",
+    "react-dom": "^19.2.6",
+    "react-router": "^7.16.0"
+  }
+}

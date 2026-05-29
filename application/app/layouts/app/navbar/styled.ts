@@ -1,0 +1,45 @@
+import { mq } from "@app/utils/mq";
+import styled from "@emotion/styled";
+
+export const Wrapper = styled.div({
+  "--nav-height": "56px",
+  "--nav-width": "100%",
+  "--navbar-border-color": "#dedede",
+  "--nav-color": "#fff",
+  background: "var(--nav-color)",
+  height: "var(--nav-height)",
+  position: "sticky",
+  top: 0,
+  zIndex: 99,
+  boxShadow: "0 1px 2px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.05)",
+  display: "flex",
+  alignItems: "center",
+});
+export const Row = styled.div({
+  display: "flex",
+  alignItems: "center",
+  flex: 1,
+  height: "100%",
+});
+export const Container = styled.div({
+  maxWidth: "1200px",
+  width: "100%",
+  margin: "0 auto",
+  padding: "0 20px",
+  height: "100%",
+});
+export const Col = styled.div<{
+  position: string;
+}>(({ position }) => ({
+  display: "flex",
+  alignItems: "center",
+  height: "100%",
+  marginLeft: position === "right" || position === "center" ? "auto" : "0",
+  marginRight: position === "left" || position === "center" ? "auto" : "0",
+}));
+
+export const Logo = styled.div(
+  mq({
+    width: ["80px", "100%"],
+  }),
+);

@@ -1,0 +1,1 @@
+(self.rspackChunkapplication=self.rspackChunkapplication||[]).push([[808],{17(){},483(s,e,n){"use strict";n.r(e),n.d(e,{Component:()=>c});var a=n(848),l=n(17);let r=()=>(0,a.jsx)(l.Container,{children:(0,a.jsxs)(l.Label,{children:[(0,a.jsx)(l.InputBase,{}),(0,a.jsx)(l.Placeholder,{children:"EMAIL"})]})}),c=()=>(0,a.jsx)(r,{})}}]);

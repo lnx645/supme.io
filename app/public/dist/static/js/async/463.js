@@ -1,0 +1,1 @@
+"use strict";(self.rspackChunkapplication=self.rspackChunkapplication||[]).push([[463],{130(n,i,s){s.r(i);var a=s(848),p=s(656);s.d(i,{},{Component:()=>(0,a.jsx)(a.Fragment,{children:(0,a.jsx)(p.k2,{to:"/login",children:"Login"})})})}}]);
