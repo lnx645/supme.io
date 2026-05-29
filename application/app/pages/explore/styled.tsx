@@ -5,8 +5,7 @@ export const Wrapper = styled.div({
 });
 export const PageTitle = styled.span({
   fontSize: 19,
-  fontWeight:600,
-  fontFamily: "var(--font-source-serif)",
+  fontWeight:700,
 });
 
 export const Main = styled.div({
