@@ -1,6 +1,30 @@
 import styled from "@emotion/styled";
-import { Button as RCABtn } from "react-aria-components/Button";
-const BaseButton = styled(RCABtn)({
+import { ScrollContainer } from "react-indiana-drag-scroll";
+import "react-indiana-drag-scroll/dist/style.css";
+import { Button } from "react-aria-components/Button";
+import { NavLink } from "react-router";
+const Wrapper = styled.div({
+  position: "relative",
+  display: "flex",
+  alignItems: "center",
+});
+
+export const Navigate = styled(Button)<{ right?: boolean }>(({ right }) => {
+  return {
+    position: "absolute",
+    left: !right ? 0 : "auto",
+    right: right ? 0 : "auto",
+  };
+});
+export const Container = styled(ScrollContainer)({
+  flex: 1,
+  gap: 2,
+  display: "flex",
+  paddingBlock: 2,
+  marginLeft: 10,
+  alignItems: "center",
+});
+export const ListItem = styled(Button)({
   "--button-border-size": "1px",
   "--button-gradient-size": "12px",
   "--button-shadow": "rgba(0, 0, 0, 0.15)",
@@ -8,8 +32,7 @@ const BaseButton = styled(RCABtn)({
   "--button-highlight": "rgba(255, 255, 255, 0.35)",
   "--button-gradient": "rgba(0, 0, 0, 0.08)",
   paddingInline: 16,
-  paddingBlock: 20,
-  fontSize: 14,
+  fontSize: 12,
   textDecoration: "none",
   display: "inline-flex",
   background: "none",
@@ -25,19 +48,17 @@ const BaseButton = styled(RCABtn)({
   borderRadius: 10,
   WebkitTapHighlightColor: "transparent",
   fontWeight: "bold",
-  color:'white',
-  backgroundColor: "var(--color-primary)",
+  
   boxShadow: `
-    inset 0 -1.5px 0 var(--button-shadow),
+    inset 0 -2px 0 var(--button-shadow),
     inset 0 0 0 var(--button-border-size) var(--button-border),
     inset 0px calc(var(--button-border-size) + 1px) 0px var(--button-highlight),
     inset 0px calc(-1 * var(--button-gradient-size)) var(--button-gradient-size) -2px var(--button-gradient)
   `,
-  "&:where([data-hovered]),&:where([data-focused]),:hover": {
+  "&:where([data-hovered]),&:where([data-focused])": {
     color: "white",
-    background: "var(--color-primary)",
+    backgroundColor: "var(--color-primary)",
   },
-
   "&:where([data-pressed])": {
     "--button-shadow": "#c94b12",
     scale: 0.95,
@@ -51,16 +72,4 @@ const BaseButton = styled(RCABtn)({
   cursor: "pointer",
   userSelect: "none",
 });
-const Title = styled.span({
-  fontWeight: 600,
-  fontSize: 14,
-});
-const Button = ({ children }: any) => {
-  return (
-    <BaseButton>
-      <Title>{children}</Title>
-    </BaseButton>
-  );
-};
-
-export default Button;
+export { Wrapper };

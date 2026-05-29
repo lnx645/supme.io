@@ -7,7 +7,6 @@ const NotFoundContainer = styled.div({
   alignItems: "center",
   justifyContent: "center",
   height: "100vh",
-  backgroundColor: "#f8f9fa",
   color: "#212529",
   fontFamily: "system-ui, -apple-system, sans-serif",
   textAlign: "center",

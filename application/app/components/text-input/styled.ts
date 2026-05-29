@@ -42,12 +42,13 @@ export const PasswordToggle = styled.button({
   color: "#86868b",
   border: "none",
   right: 0,
-  transition:"all 0.4s ease-in-out"
+  transition: "all 0.4s ease-in-out",
 });
 export const Label = styled.label({
   position: "relative",
   display: "flex",
   width: "100%",
+
   flexDirection: "column",
   [`&:focus-within,&:active`]: {
     "button[data-el='password-toggle']": {
@@ -59,6 +60,7 @@ export const Label = styled.label({
 export const InputWrapper = styled.div({
   position: "relative",
   width: "100%",
+
   display: "flex",
   alignItems: "center",
 });
@@ -74,7 +76,16 @@ export const InputBase = styled(Input)<StateProps>(({ state = "default" }) => ({
   outline: "none",
   transition: "all 0.2s ease-in-out",
   color: "rgb(82, 82, 82)",
-
+  "--inset-border-size": "1px",
+  "--inset-border": "rgba(0, 0, 0, 0.08)",
+  "--inset-shadow-offset": "3px",
+  "--inset-shadow-size": "6px",
+  "--gray-50": "#ffffff",
+  boxShadow: `
+    inset 0 0 0 var(--inset-border-size) var(--inset-border),
+    inset 0 var(--inset-shadow-offset) var(--inset-shadow-size) rgb(0 0 0 / 0.15),
+    0 1px 0 var(--gray-50)
+  `,
   "&::placeholder": {
     color: "transparent",
   },

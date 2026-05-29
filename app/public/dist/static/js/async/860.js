@@ -1,0 +1,1 @@
+"use strict";(self.rspackChunkapplication=self.rspackChunkapplication||[]).push([[860],{231(s,i,r){r.r(i),r.d(i,{Component:()=>n});var a=r(848);let e=()=>(0,a.jsx)("h2",{children:"Creator Lists"}),n=()=>(0,a.jsx)("div",{children:(0,a.jsx)(e,{})})}}]);

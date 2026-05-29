@@ -7,6 +7,7 @@ import styled from "@emotion/styled";
 import { createPortal } from "react-dom";
 import { MobileNavbar } from "../mobile-navbar";
 import { useEffect } from "react";
+import Button from "@app/components/button/button";
 
 const Right = styled.div(
   mq({
@@ -27,7 +28,7 @@ export const Navbar = () => {
           </Style.Col>
           <Style.Col position="right">
             <Right>
-              <Button3d>Join as Creator</Button3d>
+              <Button>Join as Creator</Button>
             </Right>
           </Style.Col>
         </Style.Row>

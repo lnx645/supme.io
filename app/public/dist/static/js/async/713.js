@@ -1,1 +1,1 @@
-"use strict";(self.rspackChunkapplication=self.rspackChunkapplication||[]).push([[713],{544(a,n,s){s.r(n);var p=s(848);s.d(n,{},{Component:()=>(0,p.jsx)("h2",{children:"Instagram Indonesia"})})}}]);
+"use strict";(self.rspackChunkapplication=self.rspackChunkapplication||[]).push([[713],{544(s,a,i){i.r(a);var p=i(848);i.d(a,{},{Component:()=>(0,p.jsx)("div",{children:(0,p.jsx)(CreatorList,{})})})}}]);

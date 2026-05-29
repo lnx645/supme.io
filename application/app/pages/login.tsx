@@ -1,3 +1,4 @@
+import Button from "@app/components/button/button";
 import { Button3d } from "@app/components/button/button3d";
 import { TextInput } from "@app/components/text-input/text-input";
 import styled from "@emotion/styled";
@@ -73,7 +74,7 @@ export const Component = () => {
           name="password"
           placeholder="Password"
         />
-        <Button3d>Login</Button3d>
+        <Button>Login</Button>
       </Form>
     </Wrapper>
   );

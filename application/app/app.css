@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
 /* 1. Gunakan model box modern yang lebih intuitif untuk semua elemen */
 *,
 *::before,
@@ -91,6 +91,7 @@ h6 {
 }
 
 :root {
+  --font-source-serif:"Source Serif 4", serif;
   --color-bg:#f5f5ee;
   --color-link: #0866ff;
   --color-primary: #fb651e;
@@ -116,3 +117,4 @@ body {
   flex-direction: column;
   position: relative;
 }
+
