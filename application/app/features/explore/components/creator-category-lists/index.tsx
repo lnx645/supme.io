@@ -3,7 +3,7 @@ import { Navigate, Wrapper, Container, ListItem } from "./styled";
 export const CreatorCategoryLists = () => {
   return (
     <Wrapper>
-      <Navigate>B</Navigate>
+      <Navigate></Navigate>
       <Container>
         <ListItem>Semua</ListItem>
         <ListItem>About</ListItem>
@@ -42,7 +42,7 @@ export const CreatorCategoryLists = () => {
         <ListItem>Jaya</ListItem>
         <ListItem>Sukma</ListItem>
       </Container>
-      <Navigate right={true}>N</Navigate>
+      <Navigate right={true}></Navigate>
     </Wrapper>
   );
 };

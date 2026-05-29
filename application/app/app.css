@@ -94,10 +94,10 @@ h6 {
   --font-source-serif:"Source Serif 4", serif;
   --color-bg:#f5f5ee;
   --color-link: #0866ff;
-  --color-primary: #fb651e;
-  --color-primary: #ff6600e6;
+  --color-primary: #f60;
+  --color-primary-hover: #ff6600e6;
   --color-primary-disabled:#f0682780;
-  --color-primary-var: #ba3e03;
+  --color-primary-var: #f60;
   --sk-button-background: "var(--color-link)";
   --sk-button-background-hover: #0076df;
   --sk-button-background-active: #006edb;
