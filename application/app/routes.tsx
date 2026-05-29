@@ -1,12 +1,12 @@
 import { createBrowserRouter } from "react-router";
-import NotFound from "@app/views/not-found";
+import NotFound from "@app/pages/not-found";
 import { AppLayout } from "./layouts/app";
 
-const Explore = () => import("@app/views/explore");
-const Login = () => import("@app/views/login");
-const Register = () => import("@app/views/register");
-const Landing = () => import("@app/views/landing");
-const Search = () => import("@app/views/search");
+const Explore = () => import("@app/pages/explore");
+const Login = () => import("@app/pages/login");
+const Register = () => import("@app/pages/register");
+const Landing = () => import("@app/pages/landing");
+const Search = () => import("@app/pages/search");
 
 const routes = createBrowserRouter([
   {
@@ -16,6 +16,10 @@ const routes = createBrowserRouter([
   {
     Component: AppLayout,
     children: [
+      {
+        path: "/",
+        lazy: Explore,
+      },
       {
         path: "/explore",
         lazy: Explore,
@@ -32,11 +36,11 @@ const routes = createBrowserRouter([
         path: "/register",
         lazy: Register,
       },
+      {
+        path: "*",
+        Component: NotFound,
+      },
     ],
-  },
-  {
-    path: "*",
-    Component: NotFound,
   },
 ]);
 

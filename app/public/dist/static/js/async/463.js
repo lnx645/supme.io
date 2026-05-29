@@ -1,1 +1,1 @@
-"use strict";(self.rspackChunkapplication=self.rspackChunkapplication||[]).push([[463],{130(n,i,s){s.r(i);var a=s(848),p=s(656);s.d(i,{},{Component:()=>(0,a.jsx)(a.Fragment,{children:(0,a.jsx)(p.k2,{to:"/login",children:"Login"})})})}}]);
+"use strict";(self.rspackChunkapplication=self.rspackChunkapplication||[]).push([[463],{130(n,p,i){i.r(p);var s=i(848),a=i(656);i.d(p,{},{Component:()=>(0,s.jsx)(s.Fragment,{children:(0,s.jsx)(a.k2,{to:"/login.php",children:"Login"})})})}}]);

@@ -2,6 +2,7 @@ import { Outlet } from "react-router";
 import { Navbar } from "./navbar";
 import { BaseContainer } from "@app/components/base-container";
 import { MobileNavbar } from "./mobile-navbar";
+import { createPortal } from "react-dom";
 
 export const AppLayout = () => {
   return (
@@ -10,9 +11,6 @@ export const AppLayout = () => {
       <BaseContainer>
         <Outlet />
       </BaseContainer>
-      <div>
-        <MobileNavbar />
-      </div>
     </>
   );
 };

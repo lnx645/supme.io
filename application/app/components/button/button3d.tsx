@@ -26,8 +26,8 @@ const Base = styled.button({
     inset: 0,
     borderRadius: 8,
     zIndex: -1,
-    background: "var(--color-link)",
-    color: "#0756d6",
+    background: "var(--color-primary)",
+    color: "var(--color-primary-var)",
     boxShadow: "0px 4px 0px",
   },
   ":active": {

@@ -4,6 +4,9 @@ import { Button3d } from "@app/components/button/button3d";
 import { NavMenu } from "../menu";
 import { mq } from "@app/utils/mq";
 import styled from "@emotion/styled";
+import { createPortal } from "react-dom";
+import { MobileNavbar } from "../mobile-navbar";
+import { useEffect } from "react";
 
 const Right = styled.div(
   mq({
@@ -29,6 +32,9 @@ export const Navbar = () => {
           </Style.Col>
         </Style.Row>
       </Style.Container>
+      {/* NAVBAR MOBILE */}
+      {createPortal(<MobileNavbar />, document.body)}
+      {/* END:NAVBAR MOBILE */}
     </Style.Wrapper>
   );
 };

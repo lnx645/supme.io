@@ -1,20 +1,26 @@
 import { mq } from "@app/utils/mq";
 import styled from "@emotion/styled";
 
-export const Wrapper = styled.div({
-  "--nav-height": "56px",
-  "--nav-width": "100%",
-  "--navbar-border-color": "#dedede",
-  "--nav-color": "#fff",
-  background: "var(--nav-color)",
-  height: "var(--nav-height)",
-  position: "sticky",
-  top: 0,
-  zIndex: 99,
-  boxShadow: "0 1px 2px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.05)",
-  display: "flex",
-  alignItems: "center",
-});
+export const Wrapper = styled.div(
+  mq({
+    "--nav-height": "56px",
+    "--nav-width": "100%",
+    "--navbar-border-color": "#dedede",
+    "--nav-color": "#f5f5eee6",
+    backdropFilter: "blur(4px)",
+    background: "var(--nav-color)",
+    height: "var(--nav-height)",
+    position: "sticky",
+    top: 0,
+    zIndex: 99,
+    boxShadow: [
+      "none",
+      // "0 1px 2px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.05)",
+    ],
+    display: "flex",
+    alignItems: "center",
+  }),
+);
 export const Row = styled.div({
   display: "flex",
   alignItems: "center",
@@ -40,6 +46,6 @@ export const Col = styled.div<{
 
 export const Logo = styled.div(
   mq({
-    width: ["80px", "100%"],
+    width: ["80px", "100px"],
   }),
 );

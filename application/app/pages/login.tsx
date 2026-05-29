@@ -10,8 +10,9 @@ import {
 export const Wrapper = styled.div({
   display: "flex",
   padding: 10,
-  maxWidth: 420,
+  maxWidth: 320,
   margin: "auto",
+  marginTop: 50,
   flexDirection: "column",
   alignItems: "center",
   gap: 24,

@@ -13,7 +13,7 @@ export const Wrapper = styled.div(
 );
 export const Item = styled(NavLink)(
   mq({
-    "--nav-color": "#65686c",
+    "--nav-color": "#202020",
     "--nav-color-active": "#e5e5e5",
     "--nav-color-hover": "#f2f2f2",
     textDecoration: "none",
@@ -22,7 +22,6 @@ export const Item = styled(NavLink)(
     paddingInline: 10,
     position: "relative",
     height: "100%",
-    flex: 1,
     display: "flex",
     alignItems: "center",
     color: "var(--nav-color)",
@@ -39,7 +38,7 @@ export const Item = styled(NavLink)(
       content: "''",
       position: "absolute",
       bottom: 0,
-      background: "var(--color-link)",
+      background: "var(--color-primary)",
       width: "90%",
       height: 3,
       transform: "scaleX(0)",
@@ -47,7 +46,7 @@ export const Item = styled(NavLink)(
     },
     ":not(.active)": {
       borderRadius: 10,
-      height: "calc(var(--nav-height) - 8px)",
+      height: "calc(var(--nav-height) - 10px)",
       ":hover": {
         background: "var(--nav-color-hover)",
       },
@@ -62,8 +61,8 @@ export const Item = styled(NavLink)(
     },
     "&.active": {
       cursor: "default",
-      color: "var(--color-link)",
-      background: "white",
+      color: "var(--color-primary)",
+      background: "transparent",
       "::before": {
         transform: "scaleX(1)",
       },
