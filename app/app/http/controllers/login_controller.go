@@ -7,18 +7,29 @@ import (
 	"github.com/lnx645/supme.io/app/facades"
 	"github.com/lnx645/supme.io/app/http/requests"
 	"github.com/lnx645/supme.io/app/models"
+	"github.com/lnx645/supme.io/app/services"
 )
 
-type LoginController struct{}
+type LoginController struct {
+	authLogService services.AuthLoginService
+}
 
 func NewLoginController() *LoginController {
-	return &LoginController{}
+	return &LoginController{
+		authLogService: *services.NewLoginService(),
+	}
 }
-func (c *LoginController) Login(ctx http.Context) http.Response {
 
+func (c *LoginController) Login(ctx http.Context) http.Response {
 	var postData requests.LoginPostRequest
 	errs, err := ctx.Request().
 		ValidateRequest(&postData)
+
+	ipAddress := ctx.Request().
+		Ip()
+	userAgent := ctx.Request().
+		Header("User-Agent", "Unknown")
+
 	if err != nil {
 		return ctx.Response().
 			Status(http.StatusInternalServerError).
@@ -33,7 +44,6 @@ func (c *LoginController) Login(ctx http.Context) http.Response {
 	}
 
 	var user models.User
-
 	if err = facades.DB().
 		Table("users").
 		Where("email", postData.Email).
@@ -41,6 +51,7 @@ func (c *LoginController) Login(ctx http.Context) http.Response {
 		FirstOr(&user, func() error {
 			return errors.New("User tidak ditemukan!")
 		}); err != nil {
+		c.authLogService.Record("Login gagal", ipAddress, userAgent, user.ID, false, err.Error())
 		return ctx.Response().
 			Status(http.StatusNotFound).
 			Json(http.Json{
@@ -49,7 +60,7 @@ func (c *LoginController) Login(ctx http.Context) http.Response {
 	}
 	if facades.Hash().Check(postData.Password, user.Password) {
 		token, err := facades.Auth(ctx).LoginUsingID(user.ID)
-
+		c.authLogService.Record("Login Berhasil", ipAddress, userAgent, user.ID, true, "Login Berhasil!")
 		if err != nil {
 			return ctx.Response().
 				Status(http.StatusNotFound).
@@ -57,7 +68,7 @@ func (c *LoginController) Login(ctx http.Context) http.Response {
 					"message": err.Error(),
 				})
 		}
-
+		//
 		return ctx.Response().
 			Success().
 			Json(http.Json{
@@ -67,6 +78,7 @@ func (c *LoginController) Login(ctx http.Context) http.Response {
 			})
 
 	} else {
+		c.authLogService.Record("Login Gagal", ipAddress, userAgent, user.ID, false, "Login gagal username atau password salah")
 		return ctx.Response().
 			Status(http.StatusNotFound).
 			Json(http.Json{

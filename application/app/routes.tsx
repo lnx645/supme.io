@@ -28,7 +28,6 @@ const routes = createBrowserRouter([
   },
   {
     Component: AppLayout,
-
     children: [
       {
         path: "/",

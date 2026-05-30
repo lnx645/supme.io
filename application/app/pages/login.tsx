@@ -1,12 +1,16 @@
 import { BaseButton } from "@app/components/button";
 import { TextInput } from "@app/components/text-input/text-input";
+import apiRequest from "@app/core/network/api_request";
 import { Container } from "@app/layouts/app/navbar/styled";
 import styled from "@emotion/styled";
+import Loading from "@svg/icons/LineMdLoadingAltLoop.svg";
+import { AxiosError } from "axios";
 import {
   useFetcher,
   type ActionFunction,
   type LoaderFunction,
 } from "react-router";
+import { toast } from "sonner";
 
 export const Wrapper = styled.div({
   display: "flex",
@@ -42,11 +46,30 @@ const LoginButton = styled(BaseButton)({
   height: 42,
 });
 
-export const action: ActionFunction = ({ request }) => {
-  console.log(request);
-
+export const action: ActionFunction = async ({ request }) => {
+  const data = await request.formData();
+  console.log(data.get("email"));
+  try {
+    const req = await apiRequest.post("login", {
+      email: data.get("email"),
+      password: data.get("password"),
+    });
+    if (req.status == 200) {
+      toast.success("Login Berhasil! Silahkan tunggu");
+    }
+  } catch (error) {
+    if (error instanceof AxiosError) {
+      if (error.response?.data) {
+        let dataError = error.response.data;
+        if (dataError.message) {
+          toast.error(dataError.message);
+        }
+      }
+    }
+  }
   return {};
-};``
+};
+``;
 
 export const loader: LoaderFunction = ({ context }) => {
   console.log(context);
@@ -56,6 +79,9 @@ export const loader: LoaderFunction = ({ context }) => {
 
 export const Component = () => {
   const fetcher = useFetcher();
+
+  const loading = fetcher.state != "idle";
+
   return (
     <Container>
       <Wrapper>
@@ -79,7 +105,9 @@ export const Component = () => {
             name="password"
             placeholder="Password"
           />
-          <LoginButton>Login</LoginButton>
+          <LoginButton isDisabled={loading} type="submit">
+            {loading ? "Loading..." : "Login"}
+          </LoginButton>
         </Form>
       </Wrapper>
     </Container>
