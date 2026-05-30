@@ -6,14 +6,14 @@ export const Wrapper = styled.div(
     paddingBottom: "env(safe-area-inset-bottom)",
     paddingInline: 25,
     position: "fixed",
+    width:"100%",
     display: ["flex", "none"],
     zIndex: 1000,
     justifyContent: "space-between",
     gap: 3,
-    background: "white",
-    borderTop: "1px solid #d8d8d8",
+    background: "var(--color-bg)",
+    borderTop: "1px solid #edede6",
     bottom: 0,
-    width: "100%",
     height: "53px",
     alignItems: "center",
     span: {
@@ -39,7 +39,7 @@ export const MenuItemMobile = styled(Item)({
   },
   ":is(.active)": {
     height: "calc(53px - 16px)",
-    background: "var(--nav-color-active)",
+    background: "rgba(0, 0, 0, 0.08)",
     borderRadius: 10,
   },
   ":not(.active)": {
@@ -47,19 +47,19 @@ export const MenuItemMobile = styled(Item)({
 
     borderRadius: 10,
     ":hover": {
-      background: "var(--nav-color-hover)",
+      background: "rgba(0, 0, 0, 0.04)",
     },
     ":active": {
-      background: "var(--nav-color-active)",
+      background: "rgba(0, 0, 0, 0.08)",
     },
     textDecoration: "none",
     ":focus": {
-      background: "var(--nav-color-active)",
+      background: "rgba(0, 0, 0, 0.08)",
     },
     ":focus-within": {
       outlineColor: "var(--color-link)",
       outlineOffset: 3,
-      background: "var(--nav-color-active)",
+      background: "rgba(0, 0, 0, 0.08)",
     },
   },
 });

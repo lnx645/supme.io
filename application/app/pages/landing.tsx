@@ -1,9 +1,9 @@
-import { NavLink } from "react-router";
+import { Container } from "@app/layouts/app/navbar/styled";
 
 export const Component = () => {
   return (
-    <>
-      <NavLink to={"/login.php"}>Login</NavLink>
-    </>
+    <Container>
+      <h1>Landing Page Comming Soon</h1>
+    </Container>
   );
 };

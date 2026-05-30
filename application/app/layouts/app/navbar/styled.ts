@@ -10,13 +10,11 @@ export const Wrapper = styled.div(
     backdropFilter: "blur(4px)",
     background: "var(--nav-color)",
     height: "var(--nav-height)",
+    borderBottom:"1px solid #edede6",
     position: "sticky",
     top: 0,
     zIndex: 99,
-    boxShadow: [
-      "none",
-      // "0 1px 2px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.05)",
-    ],
+    boxShadow: ["none"],
     display: "flex",
     alignItems: "center",
   }),
@@ -47,5 +45,9 @@ export const Col = styled.div<{
 export const Logo = styled.div(
   mq({
     width: ["80px", "100px"],
+    svg : {
+      width:"100px",
+      height:"100px"
+    }
   }),
 );

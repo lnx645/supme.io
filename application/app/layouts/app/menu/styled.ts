@@ -14,8 +14,8 @@ export const Wrapper = styled.div(
 export const Item = styled(NavLink)(
   mq({
     "--nav-color": "#202020",
-    "--nav-color-active": "#e5e5e5",
-    "--nav-color-hover": "#f2f2f2",
+    "--nav-color-active": "rgba(0, 0, 0, 0.08)",
+    "--nav-color-hover": "rgba(0, 0, 0, 0.04)",
     textDecoration: "none",
     fontSize: 14,
     WebkitTapHighlightColor: "transparent",
@@ -26,7 +26,7 @@ export const Item = styled(NavLink)(
     alignItems: "center",
     color: "var(--nav-color)",
     justifyContent: "center",
-    fontWeight: 800,
+    fontWeight: 600,
     svg: {
       display: ["block", "none"],
       width: [28, 30],

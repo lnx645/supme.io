@@ -1,6 +1,6 @@
-import Button from "@app/components/button/button";
-import { Button3d } from "@app/components/button/button3d";
+import { BaseButton } from "@app/components/button";
 import { TextInput } from "@app/components/text-input/text-input";
+import { Container } from "@app/layouts/app/navbar/styled";
 import styled from "@emotion/styled";
 import {
   useFetcher,
@@ -11,7 +11,7 @@ import {
 export const Wrapper = styled.div({
   display: "flex",
   padding: 10,
-  maxWidth: 320,
+  maxWidth: 420,
   margin: "auto",
   marginTop: 50,
   flexDirection: "column",
@@ -38,6 +38,10 @@ const Desctipion = styled.span({
   fontSize: 14,
 });
 
+const LoginButton = styled(BaseButton)({
+  height: 42,
+});
+
 export const action: ActionFunction = ({ request }) => {
   console.log(request);
 
@@ -53,29 +57,31 @@ export const loader: LoaderFunction = ({ context }) => {
 export const Component = () => {
   const fetcher = useFetcher();
   return (
-    <Wrapper>
-      <Header>
-        <Title>Masuk ke Akunmu</Title>
-        <Desctipion>Silahkan login untuk melanjutkan</Desctipion>
-      </Header>
-      <Form as={fetcher.Form} method="POST">
-        <TextInput
-          autoFocus
-          required
-          autoComplete="email"
-          type="email"
-          name="email"
-          placeholder="Email"
-        />
-        <TextInput
-          showPw={true}
-          type="password"
-          autoComplete="current-password"
-          name="password"
-          placeholder="Password"
-        />
-        <Button>Login</Button>
-      </Form>
-    </Wrapper>
+    <Container>
+      <Wrapper>
+        <Header>
+          <Title>Masuk ke Akunmu</Title>
+          <Desctipion>Silahkan login untuk melanjutkan</Desctipion>
+        </Header>
+        <Form as={fetcher.Form} method="POST">
+          <TextInput
+            autoFocus
+            required
+            autoComplete="email"
+            type="email"
+            name="email"
+            placeholder="Email"
+          />
+          <TextInput
+            showPw={true}
+            type="password"
+            autoComplete="current-password"
+            name="password"
+            placeholder="Password"
+          />
+          <LoginButton>Login</LoginButton>
+        </Form>
+      </Wrapper>
+    </Container>
   );
 };

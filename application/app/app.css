@@ -1,102 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
-/* 1. Gunakan model box modern yang lebih intuitif untuk semua elemen */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-/* 2. Hapus margin bawaan untuk elemen yang sering dipakai */
-body,
-h1,
-h2,
-h3,
-h4,
-p,
-figure,
-blockquote,
-dl,
-dd {
-  margin: 0;
-}
-
-/* 3. Buat list tanpa style jika memiliki class (bagus untuk navigasi) */
-ul[class],
-ol[class] {
-  list-style: none;
-  padding: 0;
-}
-
-/* 4. Atur dasar core body agar tinggi penuh dan scrolling lebih halus */
-html {
-  focus-within: scroll-behavior;
-}
-
-body {
-  min-height: 100vh;
-  text-rendering: optimizeSpeed;
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-  font-family: "Nunito", sans-serif;
-}
-
-/* 5. Pengaturan elemen A (link) yang tidak memiliki class */
-a:not([class]) {
-  text-decoration-skip-ink: auto;
-}
-
-/* 6. Optimasi elemen media agar responsif dan tidak merusak layout */
-img,
-picture,
-svg,
-video,
-canvas {
-  max-width: 100%;
-  display: block;
-}
-
-/* 7. Wariskan font untuk elemen form agar seragam dengan body */
-input,
-button,
-textarea,
-select {
-  font: inherit;
-}
-
-/* 8. Hindari teks keluar dari kontainer pada elemen teks */
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  overflow-wrap: break-word;
-}
-
-/* 9. Matikan animasi untuk pengguna yang mengaktifkan fitur hemat daya/aksesibilitas */
-@media (prefers-reduced-motion: reduce) {
-  html:focus-within {
-    scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap");
+@import "./css/reset.css";
 
 :root {
-  --font-source-serif:"Source Serif 4", serif;
-  --color-bg:#f5f5ee;
+  --font-source-serif: "Source Serif 4", serif;
+  --color-bg: #f5f5ee;
   --color-link: #0866ff;
   --color-primary: #f60;
   --color-primary-hover: #ff6600e6;
-  --color-primary-disabled:#f0682780;
+  --color-primary-disabled: #f0682780;
   --color-primary-var: #f60;
   --sk-button-background: "var(--color-link)";
   --sk-button-background-hover: #0076df;
@@ -108,7 +19,11 @@ h6 {
     --sk-button-color: #fff; */
 }
 body {
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
   background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  font-family: "Nunito", sans-serif;
 }
 #root {
   min-height: 100dvh;
@@ -117,4 +32,3 @@ body {
   flex-direction: column;
   position: relative;
 }
-

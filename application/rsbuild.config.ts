@@ -16,6 +16,7 @@ export default defineConfig({
     entry: {
       app: "./app/main.tsx",
     },
+  
   },
   server: {
     publicDir: false,

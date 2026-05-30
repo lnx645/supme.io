@@ -10,15 +10,12 @@ const Search = () => import("@app/pages/search");
 
 const routes = createBrowserRouter([
   {
-    path: "/",
-    lazy: Landing,
-  },
-  {
     Component: AppLayout,
+
     children: [
       {
         path: "/",
-        lazy: Explore,
+        lazy: Landing,
       },
       {
         path: "/explore",
