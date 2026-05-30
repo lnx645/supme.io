@@ -11,6 +11,9 @@ export const NavMenu = () => {
       <Item to={"/store"}>
         <span>Store</span>
       </Item>
+      <Item to={"/creator"}>
+        <span>Creator</span>
+      </Item>
     </Wrapper>
   );
 };

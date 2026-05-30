@@ -3,7 +3,8 @@
 
 :root {
   --font-source-serif: "Source Serif 4", serif;
-  --color-bg: #f5f5ee;
+  --color-primary-bg: #f5f5ee;
+  --color-bg:"white";
   --color-link: #0866ff;
   --color-primary: #f60;
   --color-primary-hover: #ff6600e6;
@@ -26,9 +27,5 @@ body {
   font-family: "Nunito", sans-serif;
 }
 #root {
-  min-height: 100dvh;
-  display: flex;
-  padding-bottom: 5rem;
-  flex-direction: column;
-  position: relative;
+ 
 }

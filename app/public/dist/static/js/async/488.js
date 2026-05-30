@@ -1,0 +1,1 @@
+"use strict";(self.rspackChunkapplication=self.rspackChunkapplication||[]).push([[488],{467(a,n,i){i.r(n);var p=i(848);i.d(n,{},{Component:()=>(0,p.jsx)("div",{children:"Selamat datang di navbar"})})}}]);

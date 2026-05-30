@@ -6,7 +6,7 @@ export const Wrapper = styled.div(
   mq({
     marginLeft: 24,
     display: ["none", "grid"],
-    gridTemplateColumns: ["repeat(3,60px)", "repeat(3,80px)"],
+    gridTemplateColumns: ["repeat(4,60px)", "repeat(4,80px)"],
     alignItems: "center",
     height: "100%",
   }),
@@ -18,6 +18,7 @@ export const Item = styled(NavLink)(
     "--nav-color-hover": "rgba(0, 0, 0, 0.04)",
     textDecoration: "none",
     fontSize: 14,
+    whiteSpace:"nowrap",
     WebkitTapHighlightColor: "transparent",
     paddingInline: 10,
     position: "relative",

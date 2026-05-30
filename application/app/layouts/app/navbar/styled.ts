@@ -23,7 +23,7 @@ export const Row = styled.div({
   display: "flex",
   alignItems: "center",
   flex: 1,
-  height: "100%",
+  height: "var(--nav-height)",
 });
 export const Container = styled.div({
   maxWidth: "1200px",
