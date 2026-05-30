@@ -3,6 +3,9 @@ import styled from "@emotion/styled";
 
 export const Wrapper = styled.div(
   mq({
+    "--dash-color": "#404040",
+    "--dash-secondary": "#737373",
+    "--dash-bg": "#fafafa",
     display: "grid",
     gridTemplateColumns: [
       "1fr",
@@ -14,7 +17,8 @@ export const Wrapper = styled.div(
     maxWidth: ["100%", "100%", "100%", "100%", "1280px"],
     width: "100%",
     margin: "0 auto",
-    background: "#f9fafb",
+    background: "var(--dash-bg)",
+    color: "var(--dash-color)",
     padding: ["0 0", "0 0", 0, 0, 0],
     height: "100dvh",
     overflow: "hidden",
@@ -27,7 +31,7 @@ export const Sidebar = styled.div(
     maxHeight: "100vh",
     overflow: "hidden",
     display: ["none", "block"],
-    background:"white",
+    background: "white",
     borderRightWidth: 1,
     borderRightColor: "#d1d1d1",
     borderRightStyle: "solid",

@@ -14,7 +14,7 @@ export const Navbar = styled.nav({
   height: "var(--side-nav-height)",
   display: "flex",
   alignItems: "center",
-  paddingInline: 10,
+  paddingInline: 25,
   "> svg": {
     width: 100,
   },
