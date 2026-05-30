@@ -1,12 +1,14 @@
 import { BaseButton } from "@app/components/button";
 import { TextInput } from "@app/components/text-input/text-input";
 import apiRequest from "@app/core/network/api_request";
+import { authStore } from "@app/core/storage/auth_store";
 import { Container } from "@app/layouts/app/navbar/styled";
 import styled from "@emotion/styled";
-import Loading from "@svg/icons/LineMdLoadingAltLoop.svg";
 import { AxiosError } from "axios";
+import { useEffect } from "react";
 import {
   useFetcher,
+  useNavigate,
   type ActionFunction,
   type LoaderFunction,
 } from "react-router";
@@ -48,7 +50,6 @@ const LoginButton = styled(BaseButton)({
 
 export const action: ActionFunction = async ({ request }) => {
   const data = await request.formData();
-  console.log(data.get("email"));
   try {
     const req = await apiRequest.post("login", {
       email: data.get("email"),
@@ -56,6 +57,7 @@ export const action: ActionFunction = async ({ request }) => {
     });
     if (req.status == 200) {
       toast.success("Login Berhasil! Silahkan tunggu");
+      return req.data;
     }
   } catch (error) {
     if (error instanceof AxiosError) {
@@ -67,21 +69,23 @@ export const action: ActionFunction = async ({ request }) => {
       }
     }
   }
-  return {};
+  return "null";
 };
 ``;
 
 export const loader: LoaderFunction = ({ context }) => {
-  console.log(context);
-
   return {};
 };
 
 export const Component = () => {
+  const navigate = useNavigate();
   const fetcher = useFetcher();
-
   const loading = fetcher.state != "idle";
-
+  useEffect(() => {
+    if (fetcher.data) {
+      navigate("/creator");
+    }
+  }, [fetcher.data]);
   return (
     <Container>
       <Wrapper>

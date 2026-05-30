@@ -6,6 +6,9 @@ const apiRequest = axios.create({
     Accept: "application/json",
   },
   baseURL: "/api/",
+  withCredentials:true,
+  withXSRFToken:true,
 });
+
 
 export default apiRequest;

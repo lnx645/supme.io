@@ -69,6 +69,14 @@ func (c *LoginController) Login(ctx http.Context) http.Response {
 				})
 		}
 		//
+		ctx.Response().Cookie(http.Cookie{
+			Name:     "jwt",
+			Value:    token,
+			HttpOnly: true,
+			Secure:   true,
+			SameSite: "lax",
+			Path:     "/",
+		})
 		return ctx.Response().
 			Success().
 			Json(http.Json{
