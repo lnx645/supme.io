@@ -2,6 +2,7 @@ package config
 
 import (
 	"github.com/lnx645/supme.io/app/facades"
+	"github.com/lnx645/supme.io/app/models"
 )
 
 func init() {
@@ -38,6 +39,7 @@ func init() {
 		"providers": map[string]any{
 			"user": map[string]any{
 				"driver": "orm",
+				"model":  &models.User{},
 			},
 		},
 	})

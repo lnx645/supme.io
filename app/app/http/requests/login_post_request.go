@@ -6,7 +6,9 @@ import (
 )
 
 type LoginPostRequest struct {
-	Name string `form:"name" json:"name"`
+	Email    string `form:"email" json:"email"`
+	Username string `form:"username" json:"username"`
+	Password string `form:"password" json:"password"`
 }
 
 func (r *LoginPostRequest) Authorize(ctx http.Context) error {

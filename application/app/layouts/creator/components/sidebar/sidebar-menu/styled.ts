@@ -11,10 +11,19 @@ const Wrapper = styled.div({
   userSelect: "none",
   cursor: "pointer",
   color: "#3d4852",
-
+  fontWeight: 700,
   gap: 4,
   ":hover": {
     background: "rgba(0, 0, 0, 0.04)",
+    color: "var(--color-primary)",
+  },
+  ":active": {
+    background: "rgba(0, 0, 0, 0.04)",
+    color: "var(--color-primary)",
+  },
+  ":focus": {
+    background: "rgba(0, 0, 0, 0.04)",
+    color: "var(--color-primary)",
   },
 });
 
@@ -29,7 +38,6 @@ const Icon = styled.div({
 });
 const LabelText = styled.div({
   fontSize: 14,
-  fontWeight: 500,
 });
 
 const Indicator = styled.div({

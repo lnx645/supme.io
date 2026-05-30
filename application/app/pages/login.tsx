@@ -46,7 +46,7 @@ export const action: ActionFunction = ({ request }) => {
   console.log(request);
 
   return {};
-};
+};``
 
 export const loader: LoaderFunction = ({ context }) => {
   console.log(context);
