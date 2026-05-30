@@ -5,8 +5,8 @@ import Styled from "@emotion/styled";
 const BaseNavbar = Styled(Base.Wrapper)({
   "--nav-height": "56px",
   paddingInline: 10,
-  background:"var(--color-primary-bg)",
-  backdropFilter:"blur(0)",
+  background: "#fff",
+  backdropFilter: "blur(0)",
 });
 
 export const Navbar = () => {

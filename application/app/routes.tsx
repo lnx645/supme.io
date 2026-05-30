@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router";
 import NotFound from "@app/pages/not-found";
 import { AppLayout } from "./layouts/app";
-import { DashboardLayout } from "./layouts/dashboard";
+import { CreatorLayout } from "./layouts/creator";
 
 const Explore = () => import("@app/pages/explore");
 const Login = () => import("@app/pages/login");
@@ -14,11 +14,15 @@ const ManageCreator = () => import("@app/pages/creator/manage");
 const routes = createBrowserRouter([
   {
     path: "creator",
-    Component: DashboardLayout,
+    Component: CreatorLayout,
     children: [
       {
         path: "",
         lazy: ManageCreator,
+      },
+      {
+        path: "*",
+        Component: NotFound,
       },
     ],
   },
@@ -53,6 +57,5 @@ const routes = createBrowserRouter([
     ],
   },
 ]);
-
 
 export default routes;

@@ -12,4 +12,4 @@ const Button = ({ children }: any) => {
   );
 };
 
-export default Button;
+export  {Button};

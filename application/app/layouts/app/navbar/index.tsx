@@ -7,7 +7,7 @@ import styled from "@emotion/styled";
 import { createPortal } from "react-dom";
 import { MobileNavbar } from "../mobile-navbar";
 import { useEffect } from "react";
-import Button from "@app/components/button/button";
+import {Button} from "@app/components/button";
 
 const Right = styled.div(
   mq({

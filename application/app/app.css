@@ -4,6 +4,9 @@
 :root {
   --font-source-serif: "Source Serif 4", serif;
   --color-primary-bg: #f5f5ee;
+  --color-foreground:#09090b;
+  --color-muted:#8e8e84;
+  --color-secondary:#52524a;
   --color-bg:"white";
   --color-link: #0866ff;
   --color-primary: #f60;
