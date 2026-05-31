@@ -9,12 +9,14 @@ import (
 
 func Web() {
 
+	websocket := controllers.NewWebsocketController()
 	login := controllers.NewLoginController()
 	userController := controllers.NewUserController()
 
 	routes := facades.Route()
 	routes.Post("/api/login", login.Login).Name("auth.login")
-
+	routes.Get("/ws", websocket.Index).Name("websocket")
+	//auth middleware only
 	routes.Middleware(middleware.AuthMiddleware()).Prefix("api").Group(func(router route.Router) {
 		router.Get("users", userController.Index)
 		router.Get("user", userController.User)
