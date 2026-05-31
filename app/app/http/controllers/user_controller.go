@@ -1,7 +1,10 @@
 package controllers
 
 import (
+	"fmt"
+
 	"github.com/goravel/framework/contracts/http"
+	"github.com/lnx645/supme.io/app/models"
 )
 
 type UserController struct{}
@@ -17,7 +20,10 @@ func (r *UserController) Index(ctx http.Context) http.Response {
 }
 
 func (r *UserController) User(ctx http.Context) http.Response {
+	user := ctx.Value("user").(models.User)
+	fmt.Println(user.Name)
 	return ctx.Response().Success().Json(http.Json{
-		"HHS": "WS",
+		"HHS":  "WS",
+		"user": user,
 	})
 }

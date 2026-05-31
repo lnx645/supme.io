@@ -1,21 +1,27 @@
 package routes
 
 import (
+	"github.com/goravel/framework/contracts/route"
 	"github.com/lnx645/supme.io/app/facades"
 	"github.com/lnx645/supme.io/app/http/controllers"
+	"github.com/lnx645/supme.io/app/http/middleware"
 )
 
 func Web() {
 
 	login := controllers.NewLoginController()
-	facades.Route().Post("/api/login", login.Login).Name("auth.login")
-
-	facades.Route().Static("public", "./public")
-	facades.Route().Static("static", "./public/dist/static")
-
 	userController := controllers.NewUserController()
-	facades.Route().Get("/users", userController.Index)
-	facades.Route().Get("/user", userController.User)
+
+	routes := facades.Route()
+	routes.Post("/api/login", login.Login).Name("auth.login")
+
+	routes.Middleware(middleware.AuthMiddleware()).Prefix("api").Group(func(router route.Router) {
+		router.Get("users", userController.Index)
+		router.Get("user", userController.User)
+	})
+
+	routes.Static("public", "./public")
+	routes.Static("static", "./public/dist/static")
 
 	Frontend()
 

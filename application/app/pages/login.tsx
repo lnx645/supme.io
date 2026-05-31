@@ -1,7 +1,7 @@
 import { BaseButton } from "@app/components/button";
 import { TextInput } from "@app/components/text-input/text-input";
 import apiRequest from "@app/core/network/api_request";
-import { authStore } from "@app/core/storage/auth_store";
+import { hasObjectKey, joinObject } from "@app/core/utils/object";
 import { Container } from "@app/layouts/app/navbar/styled";
 import styled from "@emotion/styled";
 import { AxiosError } from "axios";
@@ -10,7 +10,6 @@ import {
   useFetcher,
   useNavigate,
   type ActionFunction,
-  type LoaderFunction,
 } from "react-router";
 import { toast } from "sonner";
 
@@ -48,33 +47,42 @@ const LoginButton = styled(BaseButton)({
   height: 42,
 });
 
+type UserResponse = {
+  user: any;
+};
+
 export const action: ActionFunction = async ({ request }) => {
   const data = await request.formData();
   try {
-    const req = await apiRequest.post("login", {
+    const req = await apiRequest.post<UserResponse>("login", {
       email: data.get("email"),
       password: data.get("password"),
     });
-    if (req.status == 200) {
-      toast.success("Login Berhasil! Silahkan tunggu");
-      return req.data;
+
+    if (req.status != 200) {
+      return {
+        success: false,
+        message: "Login gagal silahkan cobalagi!",
+      };
     }
+    return {
+      success: true,
+      message: "Login berhasil, Silahkan tunggu sebentar!",
+    };
   } catch (error) {
     if (error instanceof AxiosError) {
-      if (error.response?.data) {
-        let dataError = error.response.data;
-        if (dataError.message) {
-          toast.error(dataError.message);
+      const errData = error.response?.data;
+      if (errData) {
+        if (errData?.password || errData?.email) {
+          return { success: false, errors: errData };
+        }
+        if (errData.message) {
+          return { success: false, message: errData.message };
         }
       }
     }
   }
-  return "null";
-};
-``;
-
-export const loader: LoaderFunction = ({ context }) => {
-  return {};
+  return false;
 };
 
 export const Component = () => {
@@ -83,7 +91,11 @@ export const Component = () => {
   const loading = fetcher.state != "idle";
   useEffect(() => {
     if (fetcher.data) {
-      navigate("/creator");
+      const status = fetcher.data?.success;
+      if (status) {
+        toast(fetcher.data?.message);
+        navigate("/creator");
+      }
     }
   }, [fetcher.data]);
   return (
@@ -96,11 +108,14 @@ export const Component = () => {
         <Form as={fetcher.Form} method="POST">
           <TextInput
             autoFocus
-            required
             autoComplete="email"
             type="email"
             name="email"
             placeholder="Email"
+            state={
+              hasObjectKey(fetcher.data?.errors, "email") ? "error" : "default"
+            }
+            error={joinObject(fetcher.data?.errors?.email)}
           />
           <TextInput
             showPw={true}
@@ -108,6 +123,12 @@ export const Component = () => {
             autoComplete="current-password"
             name="password"
             placeholder="Password"
+            state={
+              hasObjectKey(fetcher.data?.errors, "password")
+                ? "error"
+                : "default"
+            }
+            error={joinObject(fetcher.data?.errors?.password)}
           />
           <LoginButton isDisabled={loading} type="submit">
             {loading ? "Loading..." : "Login"}

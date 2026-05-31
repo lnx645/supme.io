@@ -11,12 +11,12 @@ import (
 )
 
 type LoginController struct {
-	authLogService services.AuthLoginService
+	authService services.AuthLoginService
 }
 
 func NewLoginController() *LoginController {
 	return &LoginController{
-		authLogService: *services.NewLoginService(),
+		authService: *services.NewLoginService(),
 	}
 }
 
@@ -51,7 +51,7 @@ func (c *LoginController) Login(ctx http.Context) http.Response {
 		FirstOr(&user, func() error {
 			return errors.New("User tidak ditemukan!")
 		}); err != nil {
-		c.authLogService.Record("Login gagal", ipAddress, userAgent, user.ID, false, err.Error())
+		c.authService.Record("Login gagal", ipAddress, userAgent, user.ID, false, err.Error())
 		return ctx.Response().
 			Status(http.StatusNotFound).
 			Json(http.Json{
@@ -60,7 +60,7 @@ func (c *LoginController) Login(ctx http.Context) http.Response {
 	}
 	if facades.Hash().Check(postData.Password, user.Password) {
 		token, err := facades.Auth(ctx).LoginUsingID(user.ID)
-		c.authLogService.Record("Login Berhasil", ipAddress, userAgent, user.ID, true, "Login Berhasil!")
+		c.authService.Record("Login Berhasil", ipAddress, userAgent, user.ID, true, "Login Berhasil!")
 		if err != nil {
 			return ctx.Response().
 				Status(http.StatusNotFound).
@@ -68,15 +68,7 @@ func (c *LoginController) Login(ctx http.Context) http.Response {
 					"message": err.Error(),
 				})
 		}
-		//
-		ctx.Response().Cookie(http.Cookie{
-			Name:     "jwt",
-			Value:    token,
-			HttpOnly: true,
-			Secure:   true,
-			SameSite: "lax",
-			Path:     "/",
-		})
+		c.authService.SetAuthCookieWithContext(token, ctx)
 		return ctx.Response().
 			Success().
 			Json(http.Json{
@@ -86,7 +78,7 @@ func (c *LoginController) Login(ctx http.Context) http.Response {
 			})
 
 	} else {
-		c.authLogService.Record("Login Gagal", ipAddress, userAgent, user.ID, false, "Login gagal username atau password salah")
+		c.authService.Record("Login Gagal", ipAddress, userAgent, user.ID, false, "Login gagal username atau password salah")
 		return ctx.Response().
 			Status(http.StatusNotFound).
 			Json(http.Json{

@@ -1,14 +1,15 @@
 package config
 
 import (
+	"github.com/goravel/framework/contracts/queue"
+	redisfacades "github.com/goravel/redis/facades"
 	"github.com/lnx645/supme.io/app/facades"
 )
 
 func init() {
 	config := facades.Config()
 	config.Add("queue", map[string]any{
-		// Default Queue Connection Name
-		"default": "sync",
+		"default": "redis",
 
 		// Queue Connections
 		//
@@ -23,6 +24,14 @@ func init() {
 				"connection": "postgres",
 				"queue":      "default",
 				"concurrent": 1,
+			},
+			"redis": map[string]any{
+				"driver":     "custom",
+				"connection": "default",
+				"queue":      "default",
+				"via": func() (queue.Driver, error) {
+					return redisfacades.Queue("redis") // The `redis` value is the key of `connections`
+				},
 			},
 		},
 
