@@ -1,7 +1,8 @@
 import { createBrowserRouter } from "react-router";
 import NotFound from "@app/pages/not-found";
 import { AppLayout } from "./layouts/app";
-import { CreatorLayout } from "./layouts/creator";
+import { CreatorLayout, loader } from "./layouts/creator";
+import { authMiddleware } from "./middleware/auth_middleware";
 
 const Explore = () => import("@app/pages/explore");
 const Login = () => import("@app/pages/login");
@@ -15,6 +16,8 @@ const routes = createBrowserRouter([
   {
     path: "creator",
     Component: CreatorLayout,
+    middleware: [authMiddleware],
+    loader: loader,
     children: [
       {
         path: "",

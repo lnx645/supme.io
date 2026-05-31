@@ -10,12 +10,15 @@ import Integration from "@svg/icons/link.svg";
 import Settings from "@svg/icons/settings.svg";
 import Puzzle from "@svg/icons/puzzle.svg";
 import Statistic from "@svg/icons/chart-dots-2.svg";
-import Logo from "@svg/icon.svg"
+import Logo from "@svg/icon.svg";
+import { useAsyncValue } from "react-router";
 export default function Sidebar() {
+  const value  : any= useAsyncValue();
+
   return (
     <Base.Wrapper>
       <Base.Navbar>
-        <Logo/>
+        <Logo />
       </Base.Navbar>
       <Base.Main>
         <SidebarMenu icon={Home}>Home</SidebarMenu>

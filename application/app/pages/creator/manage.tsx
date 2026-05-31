@@ -1,10 +1,10 @@
-import apiRequest from "@app/core/network/api_request";
-import { authStore } from "@app/core/storage/auth_store";
-import { useEffect } from "react";
-
+import { userContext } from "@app/context/user_context";
+import { useLoaderData, type LoaderFunction } from "react-router";
+export const loader : LoaderFunction = ({context})=>{
+  const user = context.get(userContext)
+  return user
+}
 export const Component = () => {
-  useEffect(()=>{
-    apiRequest.get("user")
-  },[])
-  return <div>Selamat datang di navbar</div>;
+  const data = useLoaderData()  
+  return <div>Selamat datang di navbar {data?.name}</div>;
 };
