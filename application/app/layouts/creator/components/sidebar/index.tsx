@@ -13,7 +13,6 @@ import Statistic from "@svg/icons/chart-dots-2.svg";
 import Logo from "@svg/icon.svg";
 import { useAsyncValue } from "react-router";
 export default function Sidebar() {
-  const value  : any= useAsyncValue();
 
   return (
     <Base.Wrapper>

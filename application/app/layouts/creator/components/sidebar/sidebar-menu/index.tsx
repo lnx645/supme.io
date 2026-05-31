@@ -14,7 +14,7 @@ export const SidebarMenu = ({ children, icon: Icon }: Props) => {
         </Base.Icon>
       ) : null}
       <Base.LabelText>{children}</Base.LabelText>
-      <Base.Indicator>23</Base.Indicator>
+      <Base.Indicator></Base.Indicator>
     </Base.Wrapper>
   );
 };
