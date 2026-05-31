@@ -13,6 +13,7 @@ import {
   type InputState,
   PasswordToggle,
 } from "./styled";
+
 type InputProps = {
   placeholder: string;
   state?: InputState;
@@ -20,6 +21,7 @@ type InputProps = {
   name?: string;
   error?: string;
 } & RcaInputProps;
+
 export const TextInput = ({
   placeholder,
   error,
@@ -27,45 +29,51 @@ export const TextInput = ({
   state = "default",
   type,
   required,
+  disabled,
   ...props
 }: InputProps) => {
   const id = useId();
   const [showPw, setShowPw] = useState<boolean>(false);
+
   function showPassword() {
-    if (type === "password") {
-      setShowPw(!showPw);
+    if (type === "password" && !disabled) {
+      setShowPw((prev) => !prev);
     }
   }
 
   return (
     <Container>
-      <Label htmlFor={id}>
+      <Label htmlFor={id} data-disabled={disabled ? "" : undefined}>
         <InputWrapper>
           <InputBase
-            type={type == "password" ? (showPw ? "text" : "password") : type}
+            type={type === "password" ? (showPw ? "text" : "password") : type}
             id={id}
             key={id}
             name={name}
             required={required}
-            placeholder="Email"
+            disabled={disabled}
+            placeholder={placeholder}
             state={state}
             {...props}
           />
-          <Placeholder state={state}>
+          <Placeholder state={state} disabled={disabled}>
             {placeholder}
             {required ? <RequiredIndicator>*</RequiredIndicator> : null}
           </Placeholder>
-          {type == "password" ? (
+          {type === "password" ? (
             <PasswordToggle
               onClick={showPassword}
               data-el="password-toggle"
               type="button"
+              disabled={disabled}
             >
               {showPw ? <EyeShow /> : <EyeHide />}
             </PasswordToggle>
           ) : null}
         </InputWrapper>
-        {!!error ? <Message state="error">{error}</Message> : null}
+        {!!error && !disabled ? (
+          <Message state="error">{error}</Message>
+        ) : null}
       </Label>
     </Container>
   );

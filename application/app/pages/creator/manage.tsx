@@ -10,6 +10,7 @@ export const Component = () => {
   return (
     <>
       <JoinAlert />
+      {/* Informasi Saldo */}
     </>
   );
 };

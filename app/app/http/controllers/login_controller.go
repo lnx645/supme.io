@@ -58,16 +58,21 @@ func (c *LoginController) Login(ctx http.Context) http.Response {
 				"message": err.Error(),
 			})
 	}
+	//cek dulu password disini cocokan password yang di hash dengan
+	//password yang di kirim dari formulir
 	if facades.Hash().Check(postData.Password, user.Password) {
+		//login dengan auth bawaan goravel
 		token, err := facades.Auth(ctx).LoginUsingID(user.ID)
 		c.authService.Record("Login Berhasil", ipAddress, userAgent, user.ID, true, "Login Berhasil!")
 		if err != nil {
+			//response errornya
 			return ctx.Response().
 				Status(http.StatusNotFound).
 				Json(http.Json{
 					"message": err.Error(),
 				})
 		}
+		//set cookie session nya
 		c.authService.SetAuthCookieWithContext(token, ctx)
 		return ctx.Response().
 			Success().

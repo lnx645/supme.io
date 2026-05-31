@@ -3,12 +3,15 @@ import { Input } from "react-aria-components/Input";
 
 export type InputState = "default" | "error" | "warning" | "success";
 
-const stateColor = {
+const stateColor: Record<InputState, string> = {
   default: "#86868b",
   error: "#e30000",
   warning: "#ff9500",
   success: "#34c759",
 };
+
+const disabledColor = "#c7c7cc";
+const disabledBg = "#f5f5f7";
 
 export const RequiredIndicator = styled.span({
   color: "red",
@@ -19,6 +22,7 @@ export const RequiredIndicator = styled.span({
 
 export interface StateProps {
   state?: InputState;
+  disabled?: boolean;
 }
 
 export const Container = styled.div({
@@ -34,6 +38,7 @@ export const TextLength = styled.div({
   fontWeight: 600,
   top: 10,
 });
+
 export const PasswordToggle = styled.button({
   position: "absolute",
   opacity: 0,
@@ -42,15 +47,23 @@ export const PasswordToggle = styled.button({
   color: "#86868b",
   border: "none",
   right: 0,
+  cursor: "pointer",
   transition: "all 0.4s ease-in-out",
+
+  "&:disabled": {
+    cursor: "not-allowed",
+    color: disabledColor,
+    pointerEvents: "none",
+  },
 });
+
 export const Label = styled.label({
   position: "relative",
   display: "flex",
   width: "100%",
-
   flexDirection: "column",
-  [`&:focus-within,&:active`]: {
+
+  "&:not([data-disabled]):focus-within, &:not([data-disabled]):active": {
     "button[data-el='password-toggle']": {
       opacity: 1,
     },
@@ -60,7 +73,6 @@ export const Label = styled.label({
 export const InputWrapper = styled.div({
   position: "relative",
   width: "100%",
-
   display: "flex",
   alignItems: "center",
 });
@@ -76,6 +88,8 @@ export const InputBase = styled(Input)<StateProps>(({ state = "default" }) => ({
   outline: "none",
   transition: "all 0.2s ease-in-out",
   color: "rgb(82, 82, 82)",
+  fontSize: "14px",
+
   "--inset-border-size": "1px",
   "--inset-border": "rgba(0, 0, 0, 0.08)",
   "--inset-shadow-offset": "3px",
@@ -86,6 +100,7 @@ export const InputBase = styled(Input)<StateProps>(({ state = "default" }) => ({
     inset 0 var(--inset-shadow-offset) var(--inset-shadow-size) rgb(0 0 0 / 0.15),
     0 1px 0 var(--gray-50)
   `,
+
   "&::placeholder": {
     color: "transparent",
   },
@@ -104,23 +119,39 @@ export const InputBase = styled(Input)<StateProps>(({ state = "default" }) => ({
     borderColor: stateColor[state],
     boxShadow: `0 0 0 3px ${stateColor[state]}33`,
   },
+
+  // --- disabled state ---
+  "&:disabled": {
+    background: disabledBg,
+    border: `1px solid ${disabledColor}`,
+    color: disabledColor,
+    cursor: "not-allowed",
+    boxShadow: "none",
+    WebkitTextFillColor: disabledColor, // fix autofill color override
+
+    "& ~ span": {
+      color: `${disabledColor} !important`,
+    },
+  },
 }));
 
-export const Placeholder = styled.span<StateProps>(({ state = "default" }) => ({
-  position: "absolute",
-  left: 0,
-  top: 0,
-  transform: "translate(10px, 14px) scale(1)",
-  transformOrigin: "top left",
-  fontSize: "14px",
-  display: "inline-flex",
-  alignItems: "center",
-  justifyContent: "start",
-  color: stateColor[state],
-  pointerEvents: "none",
-  transition:
-    "transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s ease-in-out",
-}));
+export const Placeholder = styled.span<StateProps>(
+  ({ state = "default", disabled }) => ({
+    position: "absolute",
+    left: 0,
+    top: 0,
+    transform: "translate(10px, 14px) scale(1)",
+    transformOrigin: "top left",
+    fontSize: "14px",
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "start",
+    color: disabled ? disabledColor : stateColor[state],
+    pointerEvents: "none",
+    transition:
+      "transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s ease-in-out",
+  })
+);
 
 export const Message = styled.div<StateProps>(({ state = "default" }) => ({
   marginTop: "2px",

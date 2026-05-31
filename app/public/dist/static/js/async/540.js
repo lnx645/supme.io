@@ -1,0 +1,1 @@
+"use strict";(self.rspackChunkapplication=self.rspackChunkapplication||[]).push([[540],{727(s,n,p){p.r(n),p.d(n,{Component:()=>r});var a=p(848);let i=()=>(0,a.jsx)("h2",{children:"Sign Form"}),r=()=>(0,a.jsx)(i,{})}}]);

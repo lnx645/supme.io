@@ -1,1 +1,1 @@
-"use strict";(self.rspackChunkapplication=self.rspackChunkapplication||[]).push([[703],{418(p,s,a){a.r(s);var n=a(848);a.d(s,{},{Component:()=>(0,n.jsx)("h2",{children:"WKKWW"})})}}]);
+"use strict";(self.rspackChunkapplication=self.rspackChunkapplication||[]).push([[703],{418(r,s,a){a.r(s);var e=a(848);a.d(s,{},{Component:()=>(0,e.jsx)("h2",{children:"Register Creator"})})}}]);

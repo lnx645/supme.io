@@ -1,3 +1,5 @@
+import { SignForm } from "@app/features/register"
+
 export const Component = ()=>{
-    return <h2>WKKWW</h2>
+    return <SignForm/>
 }
