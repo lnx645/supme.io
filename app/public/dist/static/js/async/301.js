@@ -1,1 +1,0 @@
-"use strict";(self.rspackChunkapplication=self.rspackChunkapplication||[]).push([[301],{620(p,s,a){a.r(s);var n=a(848);a.d(s,{},{Component:()=>(0,n.jsx)("h2",{children:"WKKWW"})})}}]);

@@ -1,1 +1,0 @@
-"use strict";(self.rspackChunkapplication=self.rspackChunkapplication||[]).push([[48],{331(a,e,r){r.r(e);var s=r(848);r.d(e,{},{Component:()=>(0,s.jsx)("h2",{children:"Search Creator Please"})})}}]);

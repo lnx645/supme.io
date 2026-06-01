@@ -1,1 +1,0 @@
-"use strict";(self.rspackChunkapplication=self.rspackChunkapplication||[]).push([[689],{600(n,a,i){i.r(a);var s=i(848),c=i(356);i.d(a,{},{Component:()=>(0,s.jsx)(c.mc,{children:(0,s.jsx)("h1",{children:"Landing Page Comming Soon"})})})}}]);
