@@ -14,9 +14,9 @@ export default defineConfig({
   ],
   source: {
     entry: {
-      app: "./app/main.tsx",
+      app: "./web_app/app.tsx",
+      creator: "./web_app/app.tsx",
     },
-  
   },
   server: {
     publicDir: false,
@@ -36,7 +36,7 @@ export default defineConfig({
   output: {
     target: "web",
     filenameHash: false,
-    cleanDistPath: false,
+    cleanDistPath: true,
     distPath: {
       root: "../app/public/dist",
     },

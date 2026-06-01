@@ -1,1 +1,0 @@
-"use strict";(self.rspackChunkapplication=self.rspackChunkapplication||[]).push([[488],{467(a,e,t){t.r(e);var n=t(848),r=t(973),l=t(656);t.d(e,{},{Component:()=>{let a=(0,l.LG)();return(0,n.jsxs)("div",{children:["Selamat datang di navbar ",a?.name]})},loader:a=>{let{context:e}=a;return e.get(r.t)}})}}]);

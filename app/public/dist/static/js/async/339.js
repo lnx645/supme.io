@@ -1,1 +1,0 @@
-"use strict";(self.rspackChunkapplication=self.rspackChunkapplication||[]).push([[339],{110(a,n,s){s.r(n);var p=s(848);s.d(n,{},{Component:()=>(0,p.jsx)("h2",{children:"Instagram Indonesia"})})}}]);
