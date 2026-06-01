@@ -7,7 +7,7 @@ export const Component = () => {
     <div className={css.wrapper}>
      
       <Input  radius="lg" inputSize="sm" type="email" name="email" label="Email" />
-      <Input  radius="lg" inputSize="sm" type="password" label="Password" />
+      <Input disabled value={"YAYAN"}  radius="lg" inputSize="sm" type="password" label="Password" />
       <Button>Login</Button>
     </div>
   );
