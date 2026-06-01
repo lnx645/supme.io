@@ -1,0 +1,142 @@
+/* =======================================================
+   iOS PILL STYLE (FINAL FULL INTEGRATION)
+   Mencegah Gepeng + Warna Muncul + Swipe/Dismiss Lancar
+   ======================================================= */
+
+/* Base Pill Layout */
+.toast-base {
+  /* Efek Kaca Premium Gelap iOS */
+  background: rgba(30, 30, 32, 0.85) !important;
+  background-color: rgba(30, 30, 32, 0.85) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+
+  /* Bentuk Kapsul/Pil Sempurna */
+  border: 0.5px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 9999px !important;
+
+  /* Bayangan Halus Menyebar */
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.24),
+    0 2px 8px rgba(0, 0, 0, 0.12) !important;
+
+  /* Layout Sempurna di Tengah & Mencegah Gepeng */
+  padding: 10px 20px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+
+  /* Dimensi Fleksibel Mengikuti Panjang Teks */
+  width: max-content !important;
+  min-width: unset !important;
+  max-width: 90vw !important;
+  height: auto !important;
+
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif !important;
+}
+
+/* FIX UTAMA: Kunci background kaca gelap tiap tipe pas unstyled={true} aktif 
+   Biar tidak transparan bolong jadi putih polos lagi! */
+.toast-success,
+.toast-error,
+.toast-warning,
+.toast-info,
+.toast-loading {
+  background: rgba(30, 30, 32, 0.85) !important;
+  background-color: rgba(30, 30, 32, 0.85) !important;
+  border: none !important;
+}
+
+/* Typography — Menjamin Teks Berwarna Putih & Berada di Tengah */
+.toast-base :global([data-title]),
+.toast-title {
+  font-size: 13.5px !important;
+  font-weight: 500 !important;
+  color: #ffffff !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.2 !important;
+  display: inline-block !important;
+}
+
+.toast-base :global([data-description]),
+.toast-description {
+  font-size: 12px !important;
+  color: rgba(255, 255, 255, 0.5) !important;
+  margin-top: 0 !important;
+  margin-left: 4px !important;
+}
+
+/* Tombol Aksi (Action Button) */
+.toast-action {
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  border: none !important;
+  border-radius: 100px !important;
+  padding: 4px 12px !important;
+  cursor: pointer !important;
+  transition: background 0.15s !important;
+}
+.toast-action:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Tombol Silang (Close Button) */
+.toast-close {
+  color: rgba(255, 255, 255, 0.3) !important;
+  border: none !important;
+  border-radius: 100px !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  transition:
+    color 0.15s,
+    background 0.15s !important;
+}
+.toast-close:hover {
+  color: rgba(255, 255, 255, 0.7) !important;
+  background: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* =======================================================
+   BRIDGE SELECTOR UNTUK MENJINAKKAN INTERNAL SONNER
+   ======================================================= */
+
+/* Meratakan layout internal bawaan Sonner tepat di tengah vertikal */
+.toast-base :global([data-content]),
+.toast-base > div {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+}
+
+/* Memaksa elemen svg/ikon berada di tengah lingkaran tanpa margin miring */
+.toast-base :global([data-icon]),
+.toast-base svg {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 !important;
+  width: 18px !important;
+  height: 18px !important;
+  flex-shrink: 0 !important;
+}
+
+/* Pewarnaan Ikon Asli Sistem iOS (SF Colors) */
+.toast-base:global([data-type="success"]) :global([data-icon]),
+.toast-base:global([data-type="success"]) svg {
+  color: #30d158 !important;
+}
+.toast-base:global([data-type="error"]) :global([data-icon]),
+.toast-base:global([data-type="error"]) svg {
+  color: #ff453a !important;
+}
+.toast-base:global([data-type="warning"]) :global([data-icon]),
+.toast-base:global([data-type="warning"]) svg {
+  color: #ffd60a !important;
+}
+.toast-base:global([data-type="info"]) :global([data-icon]),
+.toast-base:global([data-type="info"]) svg {
+  color: #0a84ff !important;
+}

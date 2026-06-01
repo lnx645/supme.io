@@ -1,0 +1,33 @@
+@reference "../../../css/main.css";
+
+.login {
+  @apply max-w-sm;
+  @apply mx-auto;
+  @apply mt-10;
+}
+
+.login_wrapper {
+  @apply p-4;
+}
+
+.form {
+  @apply flex flex-col;
+  @apply gap-3;
+}
+
+.login_title {
+  @apply text-2xl text-center;
+  @apply mb-5;
+  @apply font-semibold;
+}
+.login_description{
+  
+  @apply text-sm font-normal;
+}
+.button_form{
+  @apply flex flex-col gap-y-2;
+}
+.button_register_link{
+  margin-top: 24;
+  @apply flex flex-col;
+}

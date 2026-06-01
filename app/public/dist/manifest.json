@@ -1,9 +1,11 @@
 {
   "allFiles": [
+    "/static/css/async/560.css",
+    "/static/js/async/560.js",
+    "/static/css/async/869.css",
+    "/static/js/async/869.js",
     "/static/css/creator.css",
     "/static/js/creator.js",
-    "/static/css/async/427.css",
-    "/static/js/async/427.js",
     "/static/font/optimistic.ttf",
     "/static/font/Geist-ExtraBoldItalic.ttf",
     "/static/font/Geist-ThinItalic.ttf",
@@ -61,10 +63,12 @@
       },
       "async": {
         "js": [
-          "/static/js/async/427.js"
+          "/static/js/async/869.js",
+          "/static/js/async/560.js"
         ],
         "css": [
-          "/static/css/async/427.css"
+          "/static/css/async/869.css",
+          "/static/css/async/560.css"
         ]
       }
     }

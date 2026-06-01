@@ -1,15 +1,25 @@
-import { Button as RCAButton, type ButtonProps } from "react-aria-components";
 import clsx from "clsx";
-import css from "./button.module.css";
-export const Button = ({ children, ...props }: ButtonProps) => {
+import css from "./button.module.css"; // Sesuaikan dengan path file CSS kamu
+import type { ButtonProps } from "./button.types";
+import { Button as RCAButton } from "react-aria-components/Button";
+export const Button = ({
+  children,
+  variant = "primary",
+  size = "sm",
+  radius = "md",
+  buttonType = "default",
+  className,
+  ...props
+}: ButtonProps) => {
   return (
     <RCAButton
       className={clsx(
         css["wrapper"],
-        css["variant-primary"],
-        css["size-sm"],
-        css["radius-md"],
-        css["type-default"],
+        css[`variant-${variant}`],
+        css[`size-${size}`],
+        css[`radius-${radius}`],
+        css[`type-${buttonType}`],
+        className,
       )}
       {...props}
     >

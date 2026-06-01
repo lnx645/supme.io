@@ -7,7 +7,12 @@ import {
 } from "@web/layouts/creator";
 
 const Home = () => import("@web/pages/home");
+const Login = () => import("@web/pages/login");
 const routes = createBrowserRouter([
+  {
+    path: "login",
+    lazy: Login,
+  },
   {
     path: "creator",
     Component: CreatorLayout,
@@ -18,6 +23,7 @@ const routes = createBrowserRouter([
         path: "",
         lazy: Home,
       },
+
       {
         path: "*",
         Component: NotFound,

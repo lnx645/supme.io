@@ -31,7 +31,7 @@
     "noUnusedParameters": false,
     "noPropertyAccessFromIndexSignature": false
   },
-  "include": ["./**/*.ts", "./**/*.tsx", "./**/*.d.ts", "./**/.svg"],
+  "include": ["./**/*.ts", "./**/*.tsx", "./**/*.d.ts", "./**/*.svg"],
   "exclude": [
     "node_modules",
     "vendor",

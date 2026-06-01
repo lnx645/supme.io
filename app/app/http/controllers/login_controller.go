@@ -40,7 +40,11 @@ func (c *LoginController) Login(ctx http.Context) http.Response {
 	if errs != nil {
 		return ctx.Response().
 			Status(http.StatusUnprocessableEntity).
-			Json(errs.All())
+			Json(http.Json{
+				"message": "Validation error",
+				"errors":  errs.All(),
+				"status":  http.StatusUnprocessableEntity,
+			})
 	}
 
 	var user models.User
