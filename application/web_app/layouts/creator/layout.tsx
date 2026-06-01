@@ -1,12 +1,13 @@
-import type { LoaderFunction, MiddlewareFunction } from "react-router"
+import type { ReactNode } from "react";
+import { Outlet, type LoaderFunction, type MiddlewareFunction } from "react-router";
 
-export const LayoutLoader : LoaderFunction = ()=>{
+export const LayoutLoader: LoaderFunction = () => {
+  return {};
+};
+export const LayoutMiddleware: MiddlewareFunction = async ({}, next) => {
+  await next();
+};
 
-}
-export const LayoutMiddleware : MiddlewareFunction = ()=>{
-    
-}
-
-export const CreatorLayout = ()=>{
-    return <h2>Creator Layout</h2>
-}
+export const CreatorLayout = () => {
+  return <Outlet/>;
+};

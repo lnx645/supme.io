@@ -1,0 +1,189 @@
+@reference "../../../css/main.css";
+
+.wrapper {
+  @apply flex flex-col w-full;
+}
+
+.inputContainer {
+  @apply relative flex items-center w-full bg-white border border-[#d1d5db] transition-all duration-200 ease-in-out overflow-hidden font-sans;
+}
+
+.inputWrapper {
+  @apply relative w-full h-full flex-1;
+}
+
+.inputElement::placeholder {
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.inputElement:focus::placeholder {
+  opacity: 1;
+  @apply text-[#9ca3af];
+}
+
+.inputElement {
+  @apply w-full h-full bg-transparent border-none outline-none focus:outline-none text-[16px] md:text-[17px] text-[#1f2937] px-3 font-normal;
+}
+
+/* Floating Label */
+.floatingLabel {
+  @apply absolute left-3 top-1/2 -translate-y-1/2 text-[#6b7280] transition-all duration-200 pointer-events-none origin-top-left font-normal;
+}
+
+/* ================= MAGIC TRICK & AUTOFILL ================= */
+.inputElement:not(:placeholder-shown) ~ .floatingLabel,
+.inputElement:-webkit-autofill ~ .floatingLabel {
+  @apply translate-y-0 text-[#6b7280];
+}
+
+.inputElement:focus ~ .floatingLabel {
+  @apply translate-y-0;
+}
+
+.inputElement:-webkit-autofill,
+.inputElement:-webkit-autofill:hover,
+.inputElement:-webkit-autofill:focus,
+.inputElement:-webkit-autofill:active {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #1f2937;
+  transition: background-color 5000s ease-in-out 0s;
+  box-shadow: inset 0 0 20px 20px transparent;
+}
+
+.icon {
+  @apply flex items-center justify-center h-full text-[#6b7280] shrink-0 px-3;
+}
+
+
+.size-xs {
+  @apply h-10;
+}
+.size-xs .inputElement {
+  @apply pt-[14px] text-sm;
+}
+.size-xs .floatingLabel {
+  @apply text-sm;
+}
+.size-xs .inputElement:focus ~ .floatingLabel,
+.size-xs .inputElement:not(:placeholder-shown) ~ .floatingLabel,
+.size-xs .inputElement:-webkit-autofill ~ .floatingLabel {
+  @apply top-[4px] text-[10px];
+}
+
+.size-sm {
+  @apply h-12;
+}
+.size-sm .inputElement {
+  @apply pt-[16px] text-base;
+}
+.size-sm .floatingLabel {
+  @apply text-base;
+}
+.size-sm .inputElement:focus ~ .floatingLabel,
+.size-sm .inputElement:not(:placeholder-shown) ~ .floatingLabel,
+.size-sm .inputElement:-webkit-autofill ~ .floatingLabel {
+  @apply top-1.5 text-[11px];
+}
+
+.size-md {
+  @apply h-14;
+}
+.size-md .inputElement {
+  @apply pt-4.5 text-[17px];
+}
+.size-md .floatingLabel {
+  @apply text-[17px];
+}
+.size-md .inputElement:focus ~ .floatingLabel,
+.size-md .inputElement:not(:placeholder-shown) ~ .floatingLabel,
+.size-md .inputElement:-webkit-autofill ~ .floatingLabel {
+  @apply top-[8px] text-[12px];
+}
+
+.size-lg {
+  @apply h-16;
+}
+.size-lg .inputElement {
+  @apply pt-5 text-lg;
+}
+.size-lg .floatingLabel {
+  @apply text-lg;
+}
+.size-lg .inputElement:focus ~ .floatingLabel,
+.size-lg .inputElement:not(:placeholder-shown) ~ .floatingLabel,
+.size-lg .inputElement:-webkit-autofill ~ .floatingLabel {
+  @apply top-2.5 text-[13px];
+}
+
+/* ================= DISABLED STATE ================= */
+/* otomatis deteksi ketika elemen <input> mendapatkan props 'disabled' */
+
+.inputContainer:has(.inputElement:disabled) {
+  @apply bg-[#f9fafb] border-[#e5e7eb] shadow-none cursor-not-allowed;
+}
+
+.inputContainer:has(.inputElement:disabled) .inputElement {
+  @apply text-[#9ca3af] cursor-not-allowed;
+}
+
+.inputContainer:has(.inputElement:disabled) .floatingLabel {
+  @apply text-[#9ca3af];
+}
+
+.inputContainer:has(.inputElement:disabled) .icon {
+  @apply text-[#d1d5db];
+}
+
+/* ================= VARIAN RADIUS ================= */
+.radius-none {
+  @apply rounded-none;
+}
+.radius-sm {
+  @apply rounded-sm;
+}
+.radius-md {
+  @apply rounded-md;
+}
+.radius-lg {
+  @apply rounded-lg;
+}
+.radius-xl {
+  @apply rounded-2xl;
+}
+.radius-full {
+  @apply rounded-full px-2;
+}
+
+/* ================= VARIAN COLOR ================= */
+.color-default {
+  @apply border-[#d1d5db] hover:border-[#9ca3af] focus-within:border-[#0064e0] focus-within:shadow-[0_0_0_1px_#0064e0];
+}
+.color-default .inputElement:focus ~ .floatingLabel {
+  @apply text-[#0064e0];
+}
+
+.color-success {
+  @apply border-emerald-300 hover:border-emerald-400 focus-within:border-emerald-500 focus-within:shadow-[0_0_0_1px_#10b981];
+}
+.color-success .inputElement:focus ~ .floatingLabel {
+  @apply text-emerald-600;
+}
+
+.color-warning {
+  @apply border-amber-300 hover:border-amber-400 focus-within:border-amber-500 focus-within:shadow-[0_0_0_1px_#f59e0b];
+}
+.color-warning .inputElement:focus ~ .floatingLabel {
+  @apply text-amber-600;
+}
+
+.color-danger {
+  @apply border-red-300 hover:border-red-400 focus-within:border-red-500 focus-within:shadow-[0_0_0_1px_#ef4444];
+}
+.color-danger .inputElement:focus ~ .floatingLabel {
+  @apply text-red-600;
+}
+.inputContainer:has(.inputElement:disabled):hover,
+.inputContainer:has(.inputElement:disabled):focus-within {
+  @apply border-[#e5e7eb] shadow-none;
+}

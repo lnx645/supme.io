@@ -1,23 +1,36 @@
 import { defineConfig } from "@rsbuild/core";
 import { pluginReact } from "@rsbuild/plugin-react";
+import { pluginTailwindcss } from "@rsbuild/plugin-tailwindcss";
 import { pluginSvgr } from "@rsbuild/plugin-svgr";
 import { pluginTypedCSSModules } from "@rsbuild/plugin-typed-css-modules";
+import classRename from "postcss-rename";
+import variableRename from "postcss-rename/variable";
+import { pluginImageCompress } from "@rsbuild/plugin-image-compress";
+
 export default defineConfig({
   plugins: [
     pluginReact(),
     pluginTypedCSSModules(),
+    pluginTailwindcss(),
+    pluginImageCompress(),
     pluginSvgr({
       svgrOptions: {
         exportType: "default",
       },
     }),
   ],
+  dev : {
+    lazyCompilation:true,
+  },
+  html: {
+    inject: true,
+  },
   source: {
     entry: {
-      app: "./web_app/app.tsx",
       creator: "./web_app/app.tsx",
     },
   },
+
   server: {
     publicDir: false,
   },
@@ -25,6 +38,10 @@ export default defineConfig({
     preset: "per-package",
   },
   tools: {
+    postcss: (opts, { addPlugins }) => {
+      addPlugins(classRename({}));
+      addPlugins(variableRename({}));
+    },
     rspack: {
       optimization: {
         splitChunks: false,
@@ -34,6 +51,19 @@ export default defineConfig({
   },
   mode: "production",
   output: {
+    minify: true,
+    sourceMap:{
+      js:false,
+      css:false,
+    },
+    manifest: true,
+    emitAssets: true,
+    emitCss: true,
+    cssModules: {
+      exportLocalsConvention: "camelCase",
+      localIdentName: "[hash:base64:5]",
+      auto: true,
+    },
     target: "web",
     filenameHash: false,
     cleanDistPath: true,

@@ -1,0 +1,294 @@
+@reference "../../../css/main.css";
+
+/* =========================
+   BASE BUTTON & THE TRICK
+========================= */
+.wrapper {
+  @apply inline-flex items-center justify-center gap-2 cursor-pointer appearance-none;
+  @apply relative select-none whitespace-nowrap touch-manipulation;
+  @apply font-medium z-0;
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+  filter: blur(0px);
+  @apply transition-all duration-150 ease-out;
+}
+
+/* KANVAS BACKGROUND (Ini yang akan di-scale) */
+.wrapper::before {
+  content: "";
+  @apply absolute inset-0 -z-10;
+  border-radius: inherit;
+  /* KUNCI PREMIUM: Durasi dicepetin ke 150ms dan pakai ease-out biar snappy */
+  @apply transition-all duration-150 ease-out;
+}
+
+.wrapper:hover:not(:disabled)::before {
+  @apply scale-[1.02];
+}
+.wrapper:active:not(:disabled)::before {
+  @apply scale-[0.98];
+}
+.wrapper:hover:not(:disabled) {
+  filter: blur(0.4px);
+}
+.wrapper:active:not(:disabled) {
+  filter: blur(0px);
+}
+.wrapper:disabled {
+  @apply opacity-50 cursor-not-allowed;
+  filter: blur(0px);
+}
+.wrapper:disabled::before {
+  @apply shadow-none scale-100;
+}
+
+.type-default.size-xs {
+  @apply px-3 py-1.5 text-xs;
+}
+.type-default.size-sm {
+  @apply px-4 py-2 text-sm;
+}
+.type-default.size-md {
+  @apply px-5 py-2.5 text-base;
+}
+.type-default.size-lg {
+  @apply px-7 py-3 text-lg;
+}
+
+/* 2. Icon Only (Square Aspect Ratio) */
+.type-icon {
+  @apply p-0 aspect-square shrink-0;
+}
+.type-icon.size-xs {
+  @apply w-8 h-8 text-xs;
+}
+.type-icon.size-sm {
+  @apply w-10 h-10 text-sm;
+}
+.type-icon.size-md {
+  @apply w-12 h-12 text-base;
+}
+.type-icon.size-lg {
+  @apply w-14 h-14 text-lg;
+}
+
+/* =========================
+   BORDER RADIUS (ROUNDED)
+========================= */
+.radius-none {
+  @apply rounded-none;
+}
+.radius-sm {
+  @apply rounded-sm;
+}
+.radius-md {
+  @apply rounded-md;
+}
+.radius-lg {
+  @apply rounded-lg;
+}
+.radius-xl {
+  @apply rounded-xl;
+}
+.radius-full {
+  @apply rounded-full;
+}
+
+/* =========================
+   VARIANTS
+   (Semua warna & shadow sekarang dipindah ke ::before)
+========================= */
+
+/* --- PRIMARY --- */
+.variant-primary {
+  @apply text-white focus-visible:ring-blue-500;
+}
+.variant-primary::before {
+  @apply bg-blue-500 shadow-sm;
+}
+.variant-primary:hover:not(:disabled)::before {
+  @apply bg-blue-600 shadow-md;
+}
+
+/* --- SUCCESS --- */
+.variant-success {
+  @apply text-white focus-visible:ring-green-500;
+}
+.variant-success::before {
+  @apply bg-green-500 shadow-sm;
+}
+.variant-success:hover:not(:disabled)::before {
+  @apply bg-green-600 shadow-md;
+}
+
+/* --- WARNING --- */
+.variant-warning {
+  @apply text-yellow-900 focus-visible:ring-yellow-400;
+}
+.variant-warning::before {
+  @apply bg-yellow-400 shadow-sm;
+}
+.variant-warning:hover:not(:disabled)::before {
+  @apply bg-yellow-500 shadow-md;
+}
+
+/* --- ERROR --- */
+.variant-error {
+  @apply text-white focus-visible:ring-red-500;
+}
+.variant-error::before {
+  @apply bg-red-500 shadow-sm;
+}
+.variant-error:hover:not(:disabled)::before {
+  @apply bg-red-600 shadow-md;
+}
+
+/* --- PURPLE --- */
+.variant-purple {
+  @apply text-white focus-visible:ring-purple-500;
+}
+.variant-purple::before {
+  @apply bg-purple-500 shadow-sm;
+}
+.variant-purple:hover:not(:disabled)::before {
+  @apply bg-purple-600 shadow-md;
+}
+
+/* --- ORANGE --- */
+.variant-orange {
+  @apply text-white focus-visible:ring-orange-500;
+}
+.variant-orange::before {
+  @apply bg-orange-500 shadow-sm;
+}
+.variant-orange:hover:not(:disabled)::before {
+  @apply bg-orange-600 shadow-md;
+}
+
+/* --- INDIGO --- */
+.variant-indigo {
+  @apply text-white focus-visible:ring-indigo-500;
+}
+.variant-indigo::before {
+  @apply bg-indigo-500 shadow-sm;
+}
+.variant-indigo:hover:not(:disabled)::before {
+  @apply bg-indigo-600 shadow-md;
+}
+
+/* --- TEAL --- */
+.variant-teal {
+  @apply text-white focus-visible:ring-teal-500;
+}
+.variant-teal::before {
+  @apply bg-teal-500 shadow-sm;
+}
+.variant-teal:hover:not(:disabled)::before {
+  @apply bg-teal-600 shadow-md;
+}
+
+/* --- DARK --- */
+.variant-dark {
+  @apply text-white focus-visible:ring-neutral-900;
+}
+.variant-dark::before {
+  @apply bg-neutral-900 shadow-sm;
+}
+.variant-dark:hover:not(:disabled)::before {
+  @apply bg-black shadow-md;
+}
+
+/* =========================
+   VARIANTS: GHOST (CLEAN)
+========================= */
+.variant-ghost {
+  @apply text-blue-600 focus-visible:ring-blue-500;
+}
+.variant-ghost::before {
+  @apply bg-transparent border border-blue-500;
+}
+.variant-ghost:hover:not(:disabled)::before {
+  @apply bg-blue-50;
+}
+
+.variant-ghost-green {
+  @apply text-green-600 focus-visible:ring-green-500;
+}
+.variant-ghost-green::before {
+  @apply bg-transparent border border-green-500;
+}
+.variant-ghost-green:hover:not(:disabled)::before {
+  @apply bg-green-50;
+}
+
+.variant-ghost-red {
+  @apply text-red-600 focus-visible:ring-red-500;
+}
+.variant-ghost-red::before {
+  @apply bg-transparent border border-red-500;
+}
+.variant-ghost-red:hover:not(:disabled)::before {
+  @apply bg-red-50;
+}
+
+.variant-ghost-purple {
+  @apply text-purple-600 focus-visible:ring-purple-500;
+}
+.variant-ghost-purple::before {
+  @apply bg-transparent border border-purple-500;
+}
+.variant-ghost-purple:hover:not(:disabled)::before {
+  @apply bg-purple-50;
+}
+
+/* =========================
+   VARIANTS: SOFT (LIGHT UI)
+========================= */
+.variant-soft-blue {
+  @apply text-blue-700 focus-visible:ring-blue-300;
+}
+.variant-soft-blue::before {
+  @apply bg-blue-100;
+}
+.variant-soft-blue:hover:not(:disabled)::before {
+  @apply bg-blue-200;
+}
+
+.variant-soft-green {
+  @apply text-green-700 focus-visible:ring-green-300;
+}
+.variant-soft-green::before {
+  @apply bg-green-100;
+}
+.variant-soft-green:hover:not(:disabled)::before {
+  @apply bg-green-200;
+}
+
+.variant-soft-purple {
+  @apply text-purple-700 focus-visible:ring-purple-300;
+}
+.variant-soft-purple::before {
+  @apply bg-purple-100;
+}
+.variant-soft-purple:hover:not(:disabled)::before {
+  @apply bg-purple-200;
+}
+
+.variant-soft-orange {
+  @apply text-orange-700 focus-visible:ring-orange-300;
+}
+.variant-soft-orange::before {
+  @apply bg-orange-100;
+}
+.variant-soft-orange:hover:not(:disabled)::before {
+  @apply bg-orange-200;
+}
+
+.variant-soft-red {
+  @apply text-red-700 focus-visible:ring-red-300;
+}
+.variant-soft-red::before {
+  @apply bg-red-100;
+}
+.variant-soft-red:hover:not(:disabled)::before {
+  @apply bg-red-200;
+}

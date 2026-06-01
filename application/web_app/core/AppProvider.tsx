@@ -12,6 +12,7 @@ export const AppProvider = ({ children }: Props) => {
         <Toaster richColors position="bottom-center" />,
         document.body,
       )}
+      {children}
     </>
   );
 };

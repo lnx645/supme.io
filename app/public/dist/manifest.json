@@ -1,0 +1,33 @@
+{
+  "allFiles": [
+    "/static/css/async/427.css",
+    "/static/js/async/427.js",
+    "/static/css/creator.css",
+    "/static/js/creator.js",
+    "/creator.html"
+  ],
+  "entries": {
+    "creator": {
+      "html": [
+        "/creator.html"
+      ],
+      "initial": {
+        "js": [
+          "/static/js/creator.js"
+        ],
+        "css": [
+          "/static/css/creator.css"
+        ]
+      },
+      "async": {
+        "js": [
+          "/static/js/async/427.js"
+        ],
+        "css": [
+          "/static/css/async/427.css"
+        ]
+      }
+    }
+  },
+  "integrity": {}
+}
