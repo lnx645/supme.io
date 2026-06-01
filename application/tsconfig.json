@@ -8,7 +8,6 @@
     "jsx": "react-jsx",
     "allowJs": true,
     "paths": {
-      "@app/*": ["./app/*"],
       "@svg/*": ["./svg/*"],
       "@web/*": ["./web_app/*"]
     },
