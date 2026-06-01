@@ -5,10 +5,6 @@ interface CssExports {
   'color-default': string;
   'color-success': string;
   'color-warning': string;
-  colorDanger: string;
-  colorDefault: string;
-  colorSuccess: string;
-  colorWarning: string;
   floatingLabel: string;
   icon: string;
   inputContainer: string;
@@ -20,20 +16,10 @@ interface CssExports {
   'radius-none': string;
   'radius-sm': string;
   'radius-xl': string;
-  radiusFull: string;
-  radiusLg: string;
-  radiusMd: string;
-  radiusNone: string;
-  radiusSm: string;
-  radiusXl: string;
   'size-lg': string;
   'size-md': string;
   'size-sm': string;
   'size-xs': string;
-  sizeLg: string;
-  sizeMd: string;
-  sizeSm: string;
-  sizeXs: string;
   wrapper: string;
 }
 declare const cssExports: CssExports;

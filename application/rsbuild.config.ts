@@ -60,8 +60,8 @@ export default defineConfig({
     emitAssets: true,
     emitCss: true,
     cssModules: {
-      exportLocalsConvention: "camelCase",
-      localIdentName: "[hash:base64:5]",
+      exportLocalsConvention: "asIs",
+      localIdentName: "[hash:base64:6]",
       auto: true,
     },
     target: "web",
