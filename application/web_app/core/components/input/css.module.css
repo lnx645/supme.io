@@ -156,10 +156,10 @@
 
 /* ================= VARIAN COLOR ================= */
 .color-default {
-  @apply border-[#d1d5db] hover:border-[#9ca3af] focus-within:border-[#0064e0] focus-within:shadow-[0_0_0_1px_#0064e0];
+  @apply border-border-default hover:border-accent-hover focus-within:border-accent focus-within:shadow-[0_0_0_0.5px_var(--color-accent)];
 }
 .color-default .inputElement:focus ~ .floatingLabel {
-  @apply text-[#0064e0];
+  @apply text-accent;
 }
 
 .color-success {

@@ -12,6 +12,7 @@ import {
   type LoaderFunction,
   type MiddlewareFunction,
 } from "react-router";
+import { AppLayout } from "./app-layout";
 
 export const LayoutLoader: LoaderFunction = ({ context }) => {
   const data = context.get(userContext);
@@ -38,13 +39,6 @@ export const LayoutMiddleware: MiddlewareFunction = async (
 
 export const CreatorLayout = () => {
   const data = useLoaderData();
-  useEffect(() => {
-    console.log(data);
-  }, []);
 
-  return (
-    <Await resolve={data}>
-      <Outlet />
-    </Await>
-  );
+  return <Await resolve={data}>{(e) => <AppLayout />}</Await>;
 };

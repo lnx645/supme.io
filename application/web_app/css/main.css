@@ -2,18 +2,75 @@
 @import "./fonts.css";
 
 :root {
-  --color-red: orange;
+  --bg-app: #f4f1e9;
+  --bg-page: #f8f5ed;
+  --bg-surface: #fffcf5;
+  --bg-elevated: #fdfaf2;
+  --bg-hover: #a8330f0d;
+  --bg-selected: #a8330f17;
+  --bg-muted: #ece6d6;
+  --bg-deep: #1a1815;
+  --text-primary: #100f0d;
+  --text-secondary: #6b6862;
+  --text-tertiary: #a09b92;
+  --text-on-dark: #f4f1e9;
+  --border: #e2dcc9;
+  --border-strong: #c9c0a8;
+  --border-dark: #f4f1e91f;
+  --accent: #a8330f;
+  --accent-soft: #a8330f1a;
+  --accent-hover: #8a2a0c;
+  --success: #1f6b3a;
+  --success-soft: #1f6b3a1a;
+  --warning: #b07410;
+  --warning-soft: #b074101f;
+  --danger: #b91c1c;
+  --danger-soft: #b91c1c1a;
+  --info: #1e5a8a;
+  --info-soft: #1e5a8a1a;
 }
 
 @theme inline {
-  --color-primary: var(--color-red);
+  /* Backgrounds */
+  --color-bg-app: var(--bg-app);
+  --color-bg-page: var(--bg-page);
+  --color-bg-surface: var(--bg-surface);
+  --color-bg-elevated: var(--bg-elevated);
+  --color-bg-hover: var(--bg-hover);
+  --color-bg-selected: var(--bg-selected);
+  --color-bg-muted: var(--bg-muted);
+  --color-bg-deep: var(--bg-deep);
+
+  /* Typography */
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-text-on-dark: var(--text-on-dark);
+
+  /* Borders */
+  --color-border-default: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-border-dark: var(--border-dark);
+
+  /* Brand / Accents */
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-hover: var(--accent-hover);
+
+  /* Status Semantic */
+  --color-success-default: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-warning-default: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-danger-default: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-info-default: var(--info);
+  --color-info-soft: var(--info-soft);
   --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
-  --font-optimistic:"Optimistic";
+  --font-optimistic: "Optimistic";
 }
 
 body {
+  @apply bg-bg-app;
   @apply font-sans;
-
 }
-
-

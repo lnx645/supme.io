@@ -8,10 +8,16 @@ import {
 
 const Home = () => import("@web/pages/home");
 const Login = () => import("@web/pages/login");
+const Register = () => import("@web/pages/register");
+
 const routes = createBrowserRouter([
   {
     path: "login",
     lazy: Login,
+  },
+  {
+    path: "register",
+    lazy: Register,
   },
   {
     path: "creator",

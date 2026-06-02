@@ -100,13 +100,13 @@
 
 /* --- PRIMARY --- */
 .variant-primary {
-  @apply text-white focus-visible:ring-blue-500;
+  @apply text-white focus-visible:ring-accent;
 }
 .variant-primary::before {
-  @apply bg-blue-500 shadow-sm;
+  @apply bg-accent shadow-sm;
 }
 .variant-primary:hover:not(:disabled)::before {
-  @apply bg-blue-600 shadow-md;
+  @apply bg-accent-hover shadow-md;
 }
 
 /* --- SUCCESS --- */
@@ -201,10 +201,10 @@
    VARIANTS: GHOST (CLEAN)
 ========================= */
 .variant-ghost {
-  @apply text-blue-600 focus-visible:ring-blue-500;
+  @apply text-blue-600 focus-visible:ring-accent;
 }
 .variant-ghost::before {
-  @apply bg-transparent border border-blue-500;
+  @apply bg-transparent border border-accent;
 }
 .variant-ghost:hover:not(:disabled)::before {
   @apply bg-blue-50;
