@@ -1,11 +1,28 @@
 import { Button } from "@web/core/components/button/button";
 import css from "./css.module.css";
 import { Input } from "@web/core/components/input";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
+import { NotificationSound } from "@lib/audio/notification-audio";
+import { playTTSMessage } from "@lib/audio/text-to-speech";
+import { http } from "@web/core/network/api_client";
 export const Component = () => {
+  const socketRef = React.useRef<WebSocket | null>(null);
+  const sound = new NotificationSound();
   useEffect(() => {
-    console.log("OKE SUCCESS");
-    
+    socketRef.current = new WebSocket("ws://localhost:8080/hub/ws/overlay");
+
+    socketRef.current.onopen = (ws) => {
+      socketRef.current?.send(
+        JSON.stringify({ type: "text", content: "login_token", token: "123" }),
+      );
+    };
+    socketRef.current.onmessage = (event) => {
+      const data = JSON.parse(event.data);
+      if (data?.content) {
+        sound.playSuccessSound();
+        playTTSMessage(data?.content);
+      }
+    };
   }, []);
   return (
     <div className={css.wrapper}>
@@ -30,7 +47,9 @@ export const Component = () => {
         type="password"
         label="Password"
       />
-      <Button>Login</Button>
+      <Button onClick={()=>{
+        http.get("http://localhost:8080/overlay/test?key=123")
+      }}>Login</Button>
     </div>
   );
 };
