@@ -1,6 +1,6 @@
 @reference "../../css/main.css";
 .wrapper {
-    @apply max-w-sm mx-auto p-4 flex flex-col gap-4;
+    @apply max-w-full min-w-full;
 }
 .google-icon {
   max-width: 20px;

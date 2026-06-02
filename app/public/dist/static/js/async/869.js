@@ -1,0 +1,1 @@
+"use strict";(self.rspackChunkapplication=self.rspackChunkapplication||[]).push([[869],{852(e,s,a){a.r(s),a.d(s,{Component:()=>l});var c=a(848),n=a(656);let l=async()=>{let e=(0,n.J8)();return(0,c.jsxs)("div",{className:"zCuFg2",children:["Welcome Back! ",e?.user?.name]})}}}]);

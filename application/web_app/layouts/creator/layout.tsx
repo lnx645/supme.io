@@ -1,13 +1,50 @@
-import type { ReactNode } from "react";
-import { Outlet, type LoaderFunction, type MiddlewareFunction } from "react-router";
+import {
+  userContext,
+  type UserContextType,
+} from "@web/core/context/userContext";
+import { http } from "@web/core/network/api_client";
+import { useEffect, type ReactNode } from "react";
+import {
+  Await,
+  Outlet,
+  redirect,
+  useLoaderData,
+  type LoaderFunction,
+  type MiddlewareFunction,
+} from "react-router";
 
-export const LayoutLoader: LoaderFunction = () => {
-  return {};
+export const LayoutLoader: LoaderFunction = ({ context }) => {
+  const data = context.get(userContext);
+  return {
+    user: data as UserContextType,
+  };
 };
-export const LayoutMiddleware: MiddlewareFunction = async ({}, next) => {
-  await next();
+export const LayoutMiddleware: MiddlewareFunction = async (
+  { context },
+  next,
+) => {
+  try {
+    const user: any = await http.get("api/user");
+    if (user?.user) {
+      context.set(userContext, user?.user);
+      await next();
+      return;
+    }
+    throw redirect("/login");
+  } catch (error) {
+    throw redirect("/login");
+  }
 };
 
 export const CreatorLayout = () => {
-  return <Outlet/>;
+  const data = useLoaderData();
+  useEffect(() => {
+    console.log(data);
+  }, []);
+
+  return (
+    <Await resolve={data}>
+      <Outlet />
+    </Await>
+  );
 };

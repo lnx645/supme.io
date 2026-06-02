@@ -55,7 +55,6 @@
   @apply flex items-center justify-center h-full text-[#6b7280] shrink-0 px-3;
 }
 
-
 .size-xs {
   @apply h-10;
 }
@@ -186,4 +185,12 @@
 .inputContainer:has(.inputElement:disabled):hover,
 .inputContainer:has(.inputElement:disabled):focus-within {
   @apply border-[#e5e7eb] shadow-none;
+}
+
+.errorfield {
+  @apply text-xs text-red-600 mt-1 gap-0.5 flex items-center;
+}
+
+.errorfield svg {
+  @apply size-[15px];
 }

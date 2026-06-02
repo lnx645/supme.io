@@ -5,6 +5,7 @@ interface CssExports {
   'color-default': string;
   'color-success': string;
   'color-warning': string;
+  errorfield: string;
   floatingLabel: string;
   icon: string;
   inputContainer: string;
