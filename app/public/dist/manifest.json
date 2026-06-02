@@ -1,9 +1,9 @@
 {
   "allFiles": [
-    "/static/css/creator.css",
-    "/static/js/creator.js",
     "/static/css/async/396.css",
     "/static/js/async/396.js",
+    "/static/css/creator.css",
+    "/static/js/creator.js",
     "/static/css/async/572.css",
     "/static/js/async/572.js",
     "/static/font/optimistic.ttf",

@@ -1,3 +1,6 @@
+
+
+
 export const playTTSMessage = (message: string, rate: number = 1.0) => {
   if (typeof window === "undefined" || !window.speechSynthesis) {
     return;
@@ -25,3 +28,4 @@ export const playTTSMessage = (message: string, rate: number = 1.0) => {
     console.error("TTS speech synthesis failed:", error);
   }
 };
+
