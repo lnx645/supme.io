@@ -6,7 +6,6 @@ import (
 )
 
 type TestOverlayController struct {
-	// Dependent services
 }
 
 func NewTestOverlayController() *TestOverlayController {

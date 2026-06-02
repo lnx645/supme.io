@@ -14,6 +14,7 @@ func NewLoginService() *AuthLoginService {
 	return &AuthLoginService{}
 }
 
+// record login activity
 func (c *AuthLoginService) Record(event string, ipAddress string, userAgent string, userId string, isSuccess bool, reason string) {
 	logData := models.UserAuthLog{
 		Event:     event,
@@ -27,6 +28,7 @@ func (c *AuthLoginService) Record(event string, ipAddress string, userAgent stri
 	_ = facades.Orm().Query().Create(&logData)
 }
 
+// set cookie disini guys
 func (c *AuthLoginService) SetAuthCookieWithContext(token string, ctx http.Context) {
 	durasiSatuBulan := time.Hour * 24 * 30
 	ctx.Response().Cookie(http.Cookie{ // Sesuaikan dengan package http bawaan Go
