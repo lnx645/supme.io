@@ -58,7 +58,7 @@ func AuthMiddleware() http.Middleware {
 		} else {
 			_ = facades.Auth(ctx).User(&currentUser)
 			jsonData, _ := json.Marshal(&currentUser)
-			err = facades.Cache().Put(key, string(jsonData), time.Hour)
+			err = facades.Cache().Put(key, string(jsonData), time.Minute)
 			if err != nil {
 				facades.Log().Info("Data Berhasil di simpan")
 			} else {
