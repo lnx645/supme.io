@@ -8,18 +8,21 @@ import (
 	"github.com/gorilla/websocket"
 )
 
+// Websocket client untuk Overlay
 type OverlayWebsocketClient struct {
 	Conn  *websocket.Conn
 	Token string
 	mu    sync.Mutex
 }
 
+// Send message to client
 func (c *OverlayWebsocketClient) Send(message interface{}) error {
 	c.mu.Lock()
 	defer c.mu.Unlock()
 	return c.Conn.WriteJSON(message)
 }
 
+// Hub untuk mengelola semua koneksi Websocket Overlay
 type OverlayWebsocketHub struct {
 	clients map[*OverlayWebsocketClient]bool
 	mu      sync.RWMutex
@@ -44,6 +47,7 @@ func (h *OverlayWebsocketHub) RemoveClient(client *OverlayWebsocketClient) {
 	}
 }
 
+// broadcast to overlay with token spesific
 func (h *OverlayWebsocketHub) BroadcastToToken(token string, message interface{}) {
 	h.mu.RLock()
 	defer h.mu.RUnlock()
@@ -60,7 +64,6 @@ func (h *OverlayWebsocketHub) BroadcastToToken(token string, message interface{}
 func (h *OverlayWebsocketHub) BroadcastAll(message interface{}) {
 	h.mu.RLock()
 	defer h.mu.RUnlock()
-
 	for client := range h.clients {
 		if err := client.Conn.WriteJSON(message); err != nil {
 			fmt.Println("Error sending message to client:", err.Error())

@@ -38,10 +38,14 @@ func NewOverlayWebsocket() *OverlayWebsocket {
 
 func (r *OverlayWebsocket) Index(ctx http.Context) http.Response {
 
-	conn, err := r.Upgrader.Upgrade(ctx.Response().Writer(), ctx.Request().Origin(), nil)
+	conn, err := r.Upgrader.Upgrade(ctx.Response().
+		Writer(), ctx.Request().
+		Origin(), nil)
 	if err != nil {
 		conn.Close()
-		return ctx.Response().Status(http.StatusForbidden).String("Gagal Upgrade Websocket")
+		return ctx.Response().
+			Status(http.StatusForbidden).
+			String("Gagal Upgrade Websocket")
 	}
 
 	conn.SetReadDeadline(time.Now().Add(5 * time.Second))
@@ -55,13 +59,10 @@ func (r *OverlayWebsocket) Index(ctx http.Context) http.Response {
 		conn.Close()
 		return nil
 	}
-
 	client := &services.OverlayWebsocketClient{
 		Conn: conn,
 	}
-
 	conn.SetReadDeadline(time.Time{})
-
 	var msg interfaces.WebsocketMessageRequest
 	if err := json.Unmarshal(raw, &msg); err != nil {
 		conn.WriteJSON(interfaces.WebsocketMessageResponse{
@@ -88,9 +89,7 @@ func (r *OverlayWebsocket) Index(ctx http.Context) http.Response {
 	})
 
 	client.Token = msg.Data
-
 	services.Overlay.AddClient(client)
-
 	go func() {
 		defer services.Overlay.RemoveClient(client)
 		for {

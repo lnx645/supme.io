@@ -77,7 +77,8 @@ func (c *LoginController) Login(ctx http.Context) http.Response {
 				})
 		}
 		//set cookie session nya
-		c.authService.SetAuthCookieWithContext(token, ctx)
+		c.authService.
+			SetAuthCookieWithContext(token, ctx)
 		return ctx.Response().
 			Success().
 			Json(http.Json{
