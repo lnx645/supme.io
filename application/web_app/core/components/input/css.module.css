@@ -201,6 +201,7 @@
 }
 
 /* ================= WARNA STATE INTERAKSI (COLOR) ================= */
+/* --- 1. DEFAULT STATE --- */
 .color-default {
   border-color: #dedede;
 }
@@ -208,38 +209,58 @@
   border-color: #c0c0c0;
   box-shadow: 0 0 0 2px #f7f7f7 inset;
 }
-
 .color-default:has(.inputElement:focus),
 .color-default:has(.inputElement:focus-within),
-.color-default:has(.inputElement:active)  {
+.color-default:has(.inputElement:active) {
   border-color: #237df2;
-  box-shadow: 0 0 0 2px #d1e4fc inset;
+  box-shadow: 0 0 0 2px #d1e4fc inset; /* Efek double border biru ke dalam */
 }
 
+/* --- 2. SUCCESS STATE --- */
 .color-success {
   border-color: var(--success);
 }
-.color-success:has(.inputElement:focus) {
+.color-success:has(.inputElement:hover) {
+  border-color: var(--success-hover, var(--success)); /* Opsional: jika ada warna hover khusus sukses */
+  box-shadow: 0 0 0 2px var(--success-soft, #f4fbf7) inset;
+}
+.color-success:has(.inputElement:focus),
+.color-success:has(.inputElement:focus-within),
+.color-success:has(.inputElement:active) {
   border-color: var(--success);
-  box-shadow: 0 0 0 1px var(--success);
+  box-shadow: 0 0 0 2px var(--success-soft, #e6f6ec) inset; /* Efek double border hijau ke dalam */
 }
 
+/* --- 3. WARNING STATE --- */
 .color-warning {
   border-color: var(--warning);
 }
-.color-warning:has(.inputElement:focus) {
+.color-warning:has(.inputElement:hover) {
+  border-color: var(--warning-hover, var(--warning));
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px var(--warning-soft, #fffdf5) inset;
+}
+.color-warning:has(.inputElement:focus),
+.color-warning:has(.inputElement:focus-within),
+.color-warning:has(.inputElement:active) {
   border-color: var(--warning);
-  box-shadow: 0 0 0 1px var(--warning);
+  box-shadow: 0 0 0 2px var(--warning-soft, #fef7e1) inset; /* Efek double border kuning ke dalam */
 }
 
+/* --- 4. DANGER STATE --- */
 .color-danger {
   border-color: var(--danger);
 }
-.color-danger:has(.inputElement:focus) {
-  border-color: var(--danger);
-  box-shadow: 0 0 0 1px var(--danger);
+.color-danger:has(.inputElement:hover) {
+  border-color: var(--danger-hover, var(--danger));
+  box-shadow: 0 0 0 2px var(--danger-soft, #fdf5f5) inset;
 }
-
+.color-danger:has(.inputElement:focus),
+.color-danger:has(.inputElement:focus-within),
+.color-danger:has(.inputElement:active) {
+  border-color: var(--danger);
+  box-shadow: 0 0 0 2px var(--danger-soft, #fce8e8) inset; /* Efek double border merah ke dalam */
+}
 /* ================= DISABLED STATE ================= */
 .inputContainer:has(.inputElement:disabled) {
   background-color: var(--bg-muted);

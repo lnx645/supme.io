@@ -36,7 +36,7 @@ func (c *AuthLoginService) SetAuthCookieWithContext(token string, ctx http.Conte
 		Value:    token,
 		HttpOnly: true,
 		Expires:  time.Now().Add(durasiSatuBulan),
-		Secure:   true,
+		Secure:   false,
 		SameSite: "lax",
 		Path:     "/",
 	})

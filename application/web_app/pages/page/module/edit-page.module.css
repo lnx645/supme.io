@@ -9,11 +9,138 @@
   @apply text-text-secondary mb-3 font-normal;
 }
 
-.text-link{
-    @apply text-xs hover:underline mt-1 hover:text-accent  inline-flex items-center;
+.text-link {
+  @apply text-xs hover:underline mt-1 hover:text-accent  inline-flex items-center;
 }
 
 .edit_wrapper {
-    @apply bg-bg-elevated border border-border-default;
-    @apply p-5 rounded;
+  background-color: var(
+    --bg-elevated,
+    #fff
+  ); /* Fallback ke putih jika variabel tidak ada */
+  border-radius: 6px;
+  overflow: hidden;
 }
+
+.image_header {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  @apply mb-[32px] lg:mb-[40px];
+}
+
+/* --- BANNER STYLES --- */
+.image_banner {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.image_banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Overlay gelap tipis di atas banner */
+.banner_overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s ease;
+}
+
+.image_banner:hover .banner_overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Tombol Pilih File Banner */
+.btn_edit_banner {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px); /* Untuk Safari */
+  color: #ffffff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 10;
+  transition: all 0.2s ease;
+}
+
+.btn_edit_banner:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.btn_edit_banner:active {
+  transform: scale(0.95);
+}
+
+/* --- AVATAR STYLES --- */
+.avatar {
+  position: absolute;
+  @apply  -bottom-10 lg:-bottom-11;
+  left: 16px;
+  @apply size-23 lg:size-24;
+  border-radius: 50%;
+  border: 4px solid #ffffff;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  cursor: pointer;
+  background-color: #e5e7eb;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Backdrop overlay & Tombol Edit Avatar saat di-hover */
+.avatar_overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.avatar_overlay span:last-child {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+}
+
+/* Efek memunculkan tombol edit avatar saat di-hover */
+.avatar:hover .avatar_overlay {
+  opacity: 1;
+}
+
+.forms {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+

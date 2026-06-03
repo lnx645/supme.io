@@ -8,7 +8,9 @@ export const AppLayout = () => {
         <Aside />
       </aside>
       <div className={css.main}>
-        <nav className={css.navbar}>WJWJJW</nav>
+        <nav className={css.navbar}>
+          LOGO
+        </nav>
         <div className={css.container}>
           <Outlet />
         </div>
