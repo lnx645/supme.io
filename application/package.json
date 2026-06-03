@@ -16,6 +16,7 @@
     "typescript": "^5"
   },
   "dependencies": {
+    "@devnomic/marquee": "^1.0.3",
     "@emotion/css": "^11.13.5",
     "@emotion/styled": "^11.14.1",
     "@gsap/react": "^2.1.2",

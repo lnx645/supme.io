@@ -2,6 +2,11 @@
 // Please do not change this file!
 interface CssExports {
   'google-icon': string;
+  item_description: string;
+  item_title: string;
+  menu_grid: string;
+  menu_item: string;
+  page_title: string;
   wrapper: string;
 }
 declare const cssExports: CssExports;

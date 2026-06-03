@@ -8,7 +8,7 @@
   max-width: 248px;
   min-width: 248px;
   @apply sticky top-0;
-  @apply border-r flex flex-col max-h-screen min-h-screen bg-bg-elevated border-border-default;
+  @apply border-r hidden lg:flex  flex-col max-h-screen min-h-screen bg-bg-elevated border-border-default;
 }
 .main {
   @apply bg-bg-surface flex-1 min-h-screen max-h-screen overflow-y-auto;
