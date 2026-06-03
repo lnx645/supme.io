@@ -3,8 +3,36 @@ import css from "./module/edit-page.module.css";
 import { Button } from "@web/core/components/button/button";
 
 import { Select, SelectItem } from "@web/core/components/select/select";
+import { UploadImageModal } from "@web/core/features/image-uploader";
+import { useEffect, useState } from "react";
+import { useFileDialog } from "@reactuses/core";
+import { file } from "bun";
 
 export const Component = () => {
+  const [avatarImage, setImageSrc] = useState<string | null>(null);
+  const [bannerImage, setBannerImage] = useState<string | null>(null);
+  const [files, open, reset] = useFileDialog({
+    accept: "image/*",
+    multiple: false,
+  });
+
+  async function uploadTriggerFunction(mode: "avatar" | "banner") {
+    open().then((files) => {
+      if (files && files.length > 0) {
+        const file = files[0] as any;
+        const obj = URL.createObjectURL(file);
+        if (obj) {
+          if (mode == "avatar") {
+            setImageSrc(obj);
+          } else if (mode == "banner") {
+            setBannerImage(obj);
+          } else {
+            reset();
+          }
+        }
+      }
+    });
+  }
   return (
     <div className={css.edit_wrapper}>
       {/* <div className={css.page_title}>
@@ -14,25 +42,23 @@ export const Component = () => {
       <div className="flex flex-col">
         <div className={css.image_header}>
           <div className={css.image_banner}>
-            <img
-              src="https://edge-cdn.trakteer.id/images/mix/default-bg-red.jpg?v=14-05-2025"
-              alt="Banner"
-            />
+            {bannerImage ? <img src={bannerImage} alt="Banner" /> : null}
             <div className={css.banner_overlay} />
-            <button type="button" className={css.btn_edit_banner}>
+            <button
+              type="button"
+              className={css.btn_edit_banner}
+              onClick={() => uploadTriggerFunction("banner")}
+            >
               📷 <span>Ubah Banner</span>
             </button>
           </div>
 
           <div className={css.avatar}>
-            <img
-              src="https://edge-cdn.trakteer.id/images/mix/default-avatar.png?v=14-05-2025"
-              alt="Avatar"
-            />
-            <div className={css.avatar_overlay}>
-              <span className="text-sm">📷</span>
-              <span>Edit</span>
-            </div>
+            {avatarImage ? <img src={avatarImage} alt="Avatar" /> : null}
+            <button
+              onClick={() => uploadTriggerFunction("avatar")}
+              className={css.avatar_overlay}
+            ></button>
           </div>
         </div>
         <div className={css.forms}>
