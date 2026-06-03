@@ -2,32 +2,44 @@
 @import "./fonts.css";
 
 :root {
-  --bg-app: #f4f1e9;
-  --bg-page: #f8f5ed;
-  --bg-surface: #fffcf5;
-  --bg-elevated: #fdfaf2;
-  --bg-hover: #a8330f0d;
-  --bg-selected: #a8330f17;
-  --bg-muted: #ece6d6;
-  --bg-deep: #1a1815;
-  --text-primary: #100f0d;
-  --text-secondary: #6b6862;
-  --text-tertiary: #a09b92;
-  --text-on-dark: #f4f1e9;
-  --border: #e2dcc9;
-  --border-strong: #c9c0a8;
-  --border-dark: #f4f1e91f;
-  --accent: #a8330f;
-  --accent-soft: #a8330f1a;
-  --accent-hover: #8a2a0c;
-  --success: #1f6b3a;
-  --success-soft: #1f6b3a1a;
-  --warning: #b07410;
-  --warning-soft: #b074101f;
-  --danger: #b91c1c;
-  --danger-soft: #b91c1c1a;
-  --info: #1e5a8a;
-  --info-soft: #1e5a8a1a;
+  /* --- Backgrounds --- */
+  --bg-app: #f2f2f2;
+  --bg-page: #ffffff;
+  --bg-surface: #f2f2f2;
+  --bg-elevated: #ffffff;
+  --bg-hover: #1877f20d;
+  --bg-selected: #1877f21a;
+  --bg-muted: #f2f3f5;
+  --bg-deep: #050505;
+
+  /* --- Typography --- */
+  --text-primary: #050505;
+  --text-secondary: #65676b;
+  --text-tertiary: #bcc0c4;
+  --text-on-dark: #ffffff;
+
+  /* --- Borders --- */
+  --border: #dadde1;
+  --border-strong: #8a8d91;
+  --border-dark: #ffffff1f;
+
+  /* --- Accent (The Facebook Blue) --- */
+  --accent: #1877f2;
+  --accent-soft: #e7f3ff;
+  --accent-hover: #166fe5;
+
+  /* --- Semantic Colors --- */
+  --success: #00a400;
+  --success-soft: #e6f6e6;
+
+  --warning: #f5bb00;
+  --warning-soft: #fef8e6;
+
+  --danger: #fa3e3e;
+  --danger-soft: #ffebe6;
+
+  --info: #0084ff;
+  --info-soft: #e6f3ff;
 }
 
 @theme inline {
@@ -67,11 +79,11 @@
   --color-info-default: var(--info);
   --color-info-soft: var(--info-soft);
   --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
-  --font-optimistic: "Optimistic";
-  --font-mono:"JetBrains Mono", monospace;
+  --font-optimistic: "Geist";
+  --font-mono: "JetBrains Mono", monospace;
 }
 
 body {
   @apply bg-bg-app;
-  @apply font-sans;
+  @apply font-sans antialiased;
 }

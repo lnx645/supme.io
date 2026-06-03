@@ -11,6 +11,7 @@ import { http } from "@web/core/network/api_client";
 import RingSpinner from "@web/core/components/spinner/LoadingSpinner";
 import { toast } from "sonner";
 import { useEffect, useMemo } from "react";
+import { Select, SelectItem } from "@web/core/components/select/select";
 
 export const action: ActionFunction = async ({ request }) => {
   const adata = await request.formData();
@@ -72,6 +73,15 @@ export const Component = () => {
             inputSize="xs"
             label="Password"
           />
+          <Select size="xs" label="Kategori Kreator">
+            <SelectItem>Programming</SelectItem>
+            <SelectItem>Programming</SelectItem>
+            <SelectItem>Programming</SelectItem>
+            <SelectItem>Programming</SelectItem>
+            <SelectItem>Programming</SelectItem>
+            <SelectItem>Programming</SelectItem>
+            <SelectItem>Programming</SelectItem>
+          </Select>
           <div className={css.button_form}>
             <Button isDisabled={loading} type="submit">
               {loading ? <RingSpinner /> : "Login"}

@@ -9,15 +9,11 @@ export const Component = async () => {
   return (
     <div className={css.wrapper}>
       <div className={css.page_title}>
-        <h1 className={css.item_title}>Hai Kreator! {data?.user?.name} </h1>
+        <h1 className={css.item_title}>Hai Kreator!</h1>
         <p className={css.item_description}>
           Berikut adalah langkah selanjutnya yang bisa kamu ambil
         </p>
       </div>
-      <Alert>
-        Harap verifikasi email kamu <b>{data?.user?.email}</b> sebelum kamu bisa
-        menerima dukungan.
-      </Alert>
       <div className={css.menu_grid}>
         <div className={css.menu_item}>
           <h1 className={css.item_title}>Edit Page</h1>

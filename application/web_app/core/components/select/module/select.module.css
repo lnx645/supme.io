@@ -1,0 +1,348 @@
+/* ================= WRAPPER & DESKRIPSI ================= */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 4px;
+}
+
+.description {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  padding: 0 4px;
+}
+
+.errorfield {
+  font-size: 12px;
+  color: var(--danger);
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ================= INPUT CONTAINER ================= */
+.inputContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+    cursor: pointer;
+  width: 100%;
+  background-color: var(--color-bg-elevated);
+  border: 1px solid var(--border);
+  transition: all 0.2s ease-in-out;
+  font-family: var(--font-sans, system-ui, sans-serif);
+  box-sizing: border-box;
+}
+
+/* ================= TOMBOL SELECT (Trigger) ================= */
+.trigger {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  /* Beri ruang di kanan sebesar 40px agar teks tidak menabrak chevron */
+  padding-left: 12px;
+  padding-right: 40px;
+  color: var(--text-primary);
+  cursor: default;
+  box-sizing: border-box;
+}
+
+/* Teks nilai yang dipilih */
+.value {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  box-sizing: border-box;
+  transition: padding 0.2s ease-in-out;
+}
+
+/* Menyembunyikan placeholder asli saat label di tengah */
+.value[data-placeholder] {
+  opacity: 0;
+  transition: opacity 0.15s ease-in-out;
+  color: var(--text-tertiary);
+}
+
+.trigger[data-focused] .value[data-placeholder],
+.trigger[data-open] .value[data-placeholder] {
+  opacity: 1;
+}
+
+/* FIX CHEVRON: Pakai absolute supaya posisinya selalu presisi di tengah vertikal */
+.icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-secondary);
+  transition: transform 0.2s ease-in-out;
+  pointer-events: none;
+}
+
+/* Animasi putar ketika dropdown terbuka tanpa ngerusak centering vertikal */
+.trigger[data-open] .icon {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+/* ================= FLOATING LABEL BASE ================= */
+.floatingLabel {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-secondary);
+  transition: all 0.2s ease-in-out;
+  pointer-events: none;
+  font-weight: 400;
+  transform-origin: top left;
+}
+
+/* ================= FIX SELECTOR ATURAN UKURAN (Menggunakan Flat Selector) ================= */
+
+/* Size XS (40px) */
+.size-xs {
+  height: 40px;
+}
+.size-xs .trigger {
+  font-size: 14px;
+}
+.size-xs .floatingLabel {
+  font-size: 14px;
+}
+.size-xs:has(.trigger[data-focused]) .value,
+.size-xs:has(.trigger[data-open]) .value,
+.size-xs:has(.value:not([data-placeholder])) .value {
+  padding-top: 12px; /* Teks turun sedikit */
+}
+.size-xs:has(.trigger[data-focused]) .floatingLabel,
+.size-xs:has(.trigger[data-open]) .floatingLabel,
+.size-xs:has(.value:not([data-placeholder])) .floatingLabel {
+  top: 4px;
+  font-size: 10px;
+  transform: translateY(0);
+}
+
+/* Size SM (48px) */
+.size-sm {
+  height: 48px;
+}
+.size-sm .trigger {
+  font-size: 16px;
+}
+.size-sm .floatingLabel {
+  font-size: 16px;
+}
+.size-sm:has(.trigger[data-focused]) .value,
+.size-sm:has(.trigger[data-open]) .value,
+.size-sm:has(.value:not([data-placeholder])) .value {
+  padding-top: 14px;
+}
+.size-sm:has(.trigger[data-focused]) .floatingLabel,
+.size-sm:has(.trigger[data-open]) .floatingLabel,
+.size-sm:has(.value:not([data-placeholder])) .floatingLabel {
+  top: 6px;
+  font-size: 11px;
+  transform: translateY(0);
+}
+
+/* Size MD (56px) */
+.size-md {
+  height: 56px;
+}
+.size-md .trigger {
+  font-size: 17px;
+}
+.size-md .floatingLabel {
+  font-size: 17px;
+}
+.size-md:has(.trigger[data-focused]) .value,
+.size-md:has(.trigger[data-open]) .value,
+.size-md:has(.value:not([data-placeholder])) .value {
+  padding-top: 16px;
+}
+.size-md:has(.trigger[data-focused]) .floatingLabel,
+.size-md:has(.trigger[data-open]) .floatingLabel,
+.size-md:has(.value:not([data-placeholder])) .floatingLabel {
+  top: 6px;
+  font-size: 12px;
+  transform: translateY(0);
+}
+
+/* Size LG (64px) */
+.size-lg {
+  height: 64px;
+}
+.size-lg .trigger {
+  font-size: 18px;
+}
+.size-lg .floatingLabel {
+  font-size: 18px;
+}
+.size-lg:has(.trigger[data-focused]) .value,
+.size-lg:has(.trigger[data-open]) .value,
+.size-lg:has(.value:not([data-placeholder])) .value {
+  padding-top: 20px;
+}
+.size-lg:has(.trigger[data-focused]) .floatingLabel,
+.size-lg:has(.trigger[data-open]) .floatingLabel,
+.size-lg:has(.value:not([data-placeholder])) .floatingLabel {
+  top: 8px;
+  font-size: 13px;
+  transform: translateY(0);
+}
+
+/* ================= DISABLED STATE ================= */
+.inputContainer:has(.trigger[data-disabled]) {
+  background-color: var(--bg-muted);
+  border-color: var(--border-strong);
+  cursor: not-allowed;
+}
+.inputContainer:has(.trigger[data-disabled]) .trigger {
+  color: var(--text-tertiary);
+  cursor: not-allowed;
+}
+.inputContainer:has(.trigger[data-disabled]) .floatingLabel {
+  color: var(--text-tertiary);
+}
+.inputContainer:has(.trigger[data-disabled]) .icon {
+  color: var(--text-tertiary);
+}
+
+/* ================= RADIUS VARIATION ================= */
+.radius-none {
+  border-radius: 0;
+}
+.radius-sm {
+  border-radius: 4px;
+}
+.radius-md {
+  border-radius: 6px;
+}
+.radius-lg {
+  border-radius: 8px;
+}
+.radius-xl {
+  border-radius: 16px;
+}
+.radius-full {
+  border-radius: 9999px;
+}
+
+/* ================= COLOR STATE VARIATION ================= */
+.color-default:has(.trigger[data-hovered]) {
+  border-color: var(--accent-hover);
+}
+.color-default:has(.trigger[data-focused]),
+.color-default:has(.trigger[data-open]) {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 0.5px var(--accent);
+}
+.color-default:has(.trigger[data-focused]) .floatingLabel,
+.color-default:has(.trigger[data-open]) .floatingLabel {
+  color: var(--accent);
+}
+
+.color-success {
+  border-color: var(--success);
+}
+.color-success:has(.trigger[data-focused]),
+.color-success:has(.trigger[data-open]) {
+  border-color: var(--success);
+  box-shadow: 0 0 0 1px var(--success);
+}
+.color-success:has(.trigger[data-focused]) .floatingLabel,
+.color-success:has(.trigger[data-open]) .floatingLabel {
+  color: var(--success);
+}
+
+.color-warning {
+  border-color: var(--warning);
+}
+.color-warning:has(.trigger[data-focused]),
+.color-warning:has(.trigger[data-open]) {
+  border-color: var(--warning);
+  box-shadow: 0 0 0 1px var(--warning);
+}
+.color-warning:has(.trigger[data-focused]) .floatingLabel,
+.color-warning:has(.trigger[data-open]) .floatingLabel {
+  color: var(--warning);
+}
+
+.color-danger {
+  border-color: var(--danger);
+}
+.color-danger:has(.trigger[data-focused]),
+.color-danger:has(.trigger[data-open]) {
+  border-color: var(--danger);
+  box-shadow: 0 0 0 1px var(--danger);
+}
+.color-danger:has(.trigger[data-focused]) .floatingLabel,
+.color-danger:has(.trigger[data-open]) .floatingLabel {
+  color: var(--danger);
+}
+
+.inputContainer:has(.trigger[data-disabled]):hover {
+  border-color: var(--border-strong);
+}
+
+/* ================= DROPDOWN POPOVER & LISTBOX ================= */
+.popover {
+  background-color: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-top: 4px;
+  min-width: var(--trigger-width);
+}
+
+.listBox {
+  outline: none;
+  box-sizing: border-box;
+  padding: 4px;
+  max-height: 250px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  padding: 6px 12px;
+  font-size: 14px;
+  color: var(--text-primary);
+  border-radius: 4px;
+  cursor: default;
+  outline: none;
+  transition: background-color 0.15s ease;
+}
+
+.item[data-focused],
+.item[data-hovered] {
+  background-color: var(--bg-hover);
+  color: var(--accent-hover);
+}
+
+.item[data-selected] {
+  font-weight: 500;
+  background-color: var(--bg-selected);
+  color: var(--accent);
+}
+
+.item[data-disabled] {
+  color: var(--text-tertiary);
+  cursor: not-allowed;
+  opacity: 0.5;
+}

@@ -1,196 +1,289 @@
-@reference "../../../css/main.css";
-
+/* ================= WRAPPER & LABELS ================= */
 .wrapper {
-  @apply flex flex-col w-full;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 6px;
 }
 
+.label {
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-family: var(--font-sans, system-ui, sans-serif);
+}
+
+/* ================= INPUT CONTAINER ================= */
 .inputContainer {
-  @apply relative flex items-center w-full bg-white border border-[#d1d5db] transition-all duration-200 ease-in-out overflow-hidden font-sans;
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: var(--bg-elevated);
+  border: 1px solid var(--border);
+  transition: all 0.2s ease-in-out;
+  font-family: var(--font-sans, system-ui, sans-serif);
+  box-sizing: border-box;
 }
 
 .inputWrapper {
-  @apply relative w-full h-full flex-1;
-}
-
-.inputElement::placeholder {
-  opacity: 0;
-  transition: opacity 0.2s ease-in-out;
-}
-
-.inputElement:focus::placeholder {
-  opacity: 1;
-  @apply text-[#9ca3af];
+  position: relative;
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
 }
 
 .inputElement {
-  @apply w-full h-full bg-transparent border-none outline-none focus:outline-none text-[16px] md:text-[17px] text-[#1f2937] px-3 font-normal;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-primary);
+  padding: 0 12px;
+  font-weight: 400;
+  box-sizing: border-box;
 }
 
-/* Floating Label */
-.floatingLabel {
-  @apply absolute left-3 top-1/2 -translate-y-1/2 text-[#6b7280] transition-all duration-200 pointer-events-none origin-top-left font-normal;
+.inputElement::placeholder {
+  color: var(--text-tertiary);
+  opacity: 1;
 }
 
-/* ================= MAGIC TRICK & AUTOFILL ================= */
-.inputElement:not(:placeholder-shown) ~ .floatingLabel,
-.inputElement:-webkit-autofill ~ .floatingLabel {
-  @apply translate-y-0 text-[#6b7280];
-}
-
-.inputElement:focus ~ .floatingLabel {
-  @apply translate-y-0;
-}
-
-.inputElement:-webkit-autofill,
-.inputElement:-webkit-autofill:hover,
-.inputElement:-webkit-autofill:focus,
-.inputElement:-webkit-autofill:active {
+/* Autofill text fix */
+.inputElement:-webkit-autofill {
   -webkit-background-clip: text;
-  -webkit-text-fill-color: #1f2937;
+  -webkit-text-fill-color: var(--text-primary);
   transition: background-color 5000s ease-in-out 0s;
-  box-shadow: inset 0 0 20px 20px transparent;
 }
 
+/* ================= ADDONS: PREFIX, SUFFIX, & ICONS ================= */
 .icon {
-  @apply flex items-center justify-center h-full text-[#6b7280] shrink-0 px-3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+  padding: 0 12px;
 }
 
+.prefix,
+.suffix {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  color: var(--text-secondary);
+  background-color: var(--bg-app);
+  padding: 0 12px;
+  font-size: 14px;
+  font-weight: 500;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.prefix {
+  border-right: 1px solid var(--border);
+}
+
+.suffix {
+  border-left: 1px solid var(--border);
+}
+
+/* ================= TOMBOL CLEAR INPUT ================= */
+.clearButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  padding: 0 10px;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  height: 100%;
+  transition: color 0.15s ease;
+  outline: none;
+}
+
+.clearButton:hover {
+  color: var(--accent);
+}
+
+/* ================= UKURAN (SIZES) ================= */
 .size-xs {
-  @apply h-10;
+  height: 40px;
 }
 .size-xs .inputElement {
-  @apply pt-[14px] text-sm;
+  font-size: 14px;
 }
-.size-xs .floatingLabel {
-  @apply text-sm;
-}
-.size-xs .inputElement:focus ~ .floatingLabel,
-.size-xs .inputElement:not(:placeholder-shown) ~ .floatingLabel,
-.size-xs .inputElement:-webkit-autofill ~ .floatingLabel {
-  @apply top-[4px] text-[10px];
+.size-xs .prefix,
+.size-xs .suffix {
+  font-size: 13px;
 }
 
 .size-sm {
-  @apply h-12;
+  height: 48px;
 }
 .size-sm .inputElement {
-  @apply pt-[16px] text-base;
-}
-.size-sm .floatingLabel {
-  @apply text-base;
-}
-.size-sm .inputElement:focus ~ .floatingLabel,
-.size-sm .inputElement:not(:placeholder-shown) ~ .floatingLabel,
-.size-sm .inputElement:-webkit-autofill ~ .floatingLabel {
-  @apply top-1.5 text-[11px];
+  font-size: 16px;
 }
 
 .size-md {
-  @apply h-14;
+  height: 56px;
 }
 .size-md .inputElement {
-  @apply pt-4.5 text-[17px];
-}
-.size-md .floatingLabel {
-  @apply text-[17px];
-}
-.size-md .inputElement:focus ~ .floatingLabel,
-.size-md .inputElement:not(:placeholder-shown) ~ .floatingLabel,
-.size-md .inputElement:-webkit-autofill ~ .floatingLabel {
-  @apply top-[8px] text-[12px];
+  font-size: 17px;
 }
 
 .size-lg {
-  @apply h-16;
+  height: 64px;
 }
 .size-lg .inputElement {
-  @apply pt-5 text-lg;
-}
-.size-lg .floatingLabel {
-  @apply text-lg;
-}
-.size-lg .inputElement:focus ~ .floatingLabel,
-.size-lg .inputElement:not(:placeholder-shown) ~ .floatingLabel,
-.size-lg .inputElement:-webkit-autofill ~ .floatingLabel {
-  @apply top-2.5 text-[13px];
+  font-size: 18px;
 }
 
-/* ================= DISABLED STATE ================= */
-/* otomatis deteksi ketika elemen <input> mendapatkan props 'disabled' */
-
-.inputContainer:has(.inputElement:disabled) {
-  @apply bg-bg-muted border-border-strong  shadow-none cursor-not-allowed;
-}
-
-.inputContainer:has(.inputElement:disabled) .inputElement {
-  @apply text-text-tertiary cursor-not-allowed;
-}
-
-.inputContainer:has(.inputElement:disabled) .floatingLabel {
-  @apply text-text-tertiary;
-}
-
-.inputContainer:has(.inputElement:disabled) .icon {
-  @apply text-[#d1d5db];
-}
-
-/* ================= VARIAN RADIUS ================= */
+/* ================= LENGKUNGAN (RADIUS VARIATION) ================= */
 .radius-none {
-  @apply rounded-none;
+  border-radius: 0;
 }
 .radius-sm {
-  @apply rounded-sm;
+  border-radius: 4px;
 }
 .radius-md {
-  @apply rounded-md;
+  border-radius: 6px;
 }
 .radius-lg {
-  @apply rounded-lg;
+  border-radius: 8px;
 }
 .radius-xl {
-  @apply rounded-2xl;
+  border-radius: 16px;
 }
 .radius-full {
-  @apply rounded-full px-2;
+  border-radius: 9999px;
 }
 
-/* ================= VARIAN COLOR ================= */
-.color-default {
-  @apply border-border-default hover:border-accent-hover focus-within:border-accent focus-within:shadow-[0_0_0_0.5px_var(--color-accent)];
+/* Menyelaraskan border siku-siku addons saat container melengkung */
+.radius-sm .prefix {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
 }
-.color-default .inputElement:focus ~ .floatingLabel {
-  @apply text-accent;
+.radius-sm .suffix {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+.radius-md .prefix {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.radius-md .suffix {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.radius-lg .prefix {
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+}
+.radius-lg .suffix {
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
+.radius-full .prefix {
+  border-top-left-radius: 9999px;
+  border-bottom-left-radius: 9999px;
+  padding-left: 16px;
+}
+.radius-full .suffix {
+  border-top-right-radius: 9999px;
+  border-bottom-right-radius: 9999px;
+  padding-right: 16px;
+}
+
+/* ================= WARNA STATE INTERAKSI (COLOR) ================= */
+.color-default {
+  border-color: #dedede;
+}
+.color-default:has(.inputElement:hover) {
+  border-color: #c0c0c0;
+  box-shadow: 0 0 0 2px #f7f7f7 inset;
+}
+
+.color-default:has(.inputElement:focus),
+.color-default:has(.inputElement:focus-within),
+.color-default:has(.inputElement:active)  {
+  border-color: #237df2;
+  box-shadow: 0 0 0 2px #d1e4fc inset;
 }
 
 .color-success {
-  @apply border-emerald-300 hover:border-emerald-400 focus-within:border-emerald-500 focus-within:shadow-[0_0_0_1px_#10b981];
+  border-color: var(--success);
 }
-.color-success .inputElement:focus ~ .floatingLabel {
-  @apply text-emerald-600;
+.color-success:has(.inputElement:focus) {
+  border-color: var(--success);
+  box-shadow: 0 0 0 1px var(--success);
 }
 
 .color-warning {
-  @apply border-amber-300 hover:border-amber-400 focus-within:border-amber-500 focus-within:shadow-[0_0_0_1px_#f59e0b];
+  border-color: var(--warning);
 }
-.color-warning .inputElement:focus ~ .floatingLabel {
-  @apply text-amber-600;
+.color-warning:has(.inputElement:focus) {
+  border-color: var(--warning);
+  box-shadow: 0 0 0 1px var(--warning);
 }
 
 .color-danger {
-  @apply border-red-300 hover:border-red-400 focus-within:border-red-500 focus-within:shadow-[0_0_0_1px_#ef4444];
+  border-color: var(--danger);
 }
-.color-danger .inputElement:focus ~ .floatingLabel {
-  @apply text-red-600;
-}
-.inputContainer:has(.inputElement:disabled):hover,
-.inputContainer:has(.inputElement:disabled):focus-within {
-  @apply border border-border-default shadow-none;
+.color-danger:has(.inputElement:focus) {
+  border-color: var(--danger);
+  box-shadow: 0 0 0 1px var(--danger);
 }
 
+/* ================= DISABLED STATE ================= */
+.inputContainer:has(.inputElement:disabled) {
+  background-color: var(--bg-muted);
+  border-color: var(--border-strong);
+  cursor: not-allowed;
+}
+.inputContainer:has(.inputElement:disabled) .inputElement {
+  cursor: not-allowed;
+  color: var(--text-tertiary);
+}
+.inputContainer:has(.inputElement:disabled) .prefix,
+.inputContainer:has(.inputElement:disabled) .suffix {
+  background-color: var(--bg-muted);
+  color: var(--text-tertiary);
+}
+
+/* ================= PESAN ERROR ================= */
 .errorfield {
-  @apply text-xs text-red-600 mt-1 gap-0.5 flex items-center;
+  font-size: 12px;
+  color: var(--danger);
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.errorfield svg {
+  width: 15px;
+  height: 15px;
 }
 
-.errorfield svg {
-  @apply size-[15px];
+/* ================= CHARACTER COUNTER ================= */
+.characterCounter {
+  font-size: 13px;
+  color: var(--text-secondary);
+  padding: 0 12px;
+  user-select: none;
+  font-variant-numeric: tabular-nums; /* Mencegah teks geser-geser saat angka berubah */
+  display: flex;
+  align-items: center;
+  height: 100%;
+  flex-shrink: 0;
+}
+
+/* Jika container dalam keadaan disabled, warnanya ikut redup */
+.inputContainer:has(.inputElement:disabled) .characterCounter {
+  color: var(--text-tertiary);
 }

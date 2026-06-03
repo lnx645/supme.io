@@ -1,7 +1,7 @@
 @reference "../../../../css/main.css";
 
 .menu_item {
-  @apply flex items-center justify-between px-[20px] py-[6px];
+  @apply flex items-center text-text-secondary justify-between px-[20px] py-[6px];
 }
 
 .menu_content {
@@ -9,7 +9,7 @@
 }
 
 .menu_name {
-  @apply text-[13px] font-[500] text-text-primary;
+  @apply  text-[13px] font-[500] text-text-secondary;
 }
 .menu_item > .menu_content > svg {
   @apply size-4;

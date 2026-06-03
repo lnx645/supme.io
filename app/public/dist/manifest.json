@@ -7,8 +7,8 @@
     "/static/css/async/634.css",
     "/static/js/async/634.js",
     "/static/js/async/631.js",
-    "/static/css/async/88.css",
-    "/static/js/async/88.js",
+    "/static/css/async/869.css",
+    "/static/js/async/869.js",
     "/static/font/optimistic.ttf",
     "/static/font/Geist-ExtraBoldItalic.ttf",
     "/static/font/Geist-ThinItalic.ttf",
@@ -66,13 +66,13 @@
       },
       "async": {
         "js": [
-          "/static/js/async/88.js",
+          "/static/js/async/869.js",
           "/static/js/async/631.js",
           "/static/js/async/634.js",
           "/static/js/async/572.js"
         ],
         "css": [
-          "/static/css/async/88.css",
+          "/static/css/async/869.css",
           "/static/css/async/634.css",
           "/static/css/async/572.css"
         ]

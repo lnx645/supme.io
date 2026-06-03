@@ -1,1 +1,1 @@
-"use strict";(self.rspackChunkapplication=self.rspackChunkapplication||[]).push([[631],{746(a,p,s){s.r(p);var n=s(848);s.d(p,{},{Component:()=>(0,n.jsx)("h2",{children:"Dafatar"})})}}]);
+"use strict";(self.rspackChunkapplication=self.rspackChunkapplication||[]).push([[631],{8746(a,p,s){s.r(p);var n=s(4848);s.d(p,{},{Component:()=>(0,n.jsx)("h2",{children:"Dafatar"})})}}]);

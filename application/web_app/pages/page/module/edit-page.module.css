@@ -12,3 +12,8 @@
 .text-link{
     @apply text-xs hover:underline mt-1 hover:text-accent  inline-flex items-center;
 }
+
+.edit_wrapper {
+    @apply bg-bg-elevated border border-border-default;
+    @apply p-5 rounded;
+}
