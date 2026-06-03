@@ -119,15 +119,15 @@
 /* otomatis deteksi ketika elemen <input> mendapatkan props 'disabled' */
 
 .inputContainer:has(.inputElement:disabled) {
-  @apply bg-[#f9fafb] border-[#e5e7eb] shadow-none cursor-not-allowed;
+  @apply bg-bg-muted border-border-strong  shadow-none cursor-not-allowed;
 }
 
 .inputContainer:has(.inputElement:disabled) .inputElement {
-  @apply text-[#9ca3af] cursor-not-allowed;
+  @apply text-text-tertiary cursor-not-allowed;
 }
 
 .inputContainer:has(.inputElement:disabled) .floatingLabel {
-  @apply text-[#9ca3af];
+  @apply text-text-tertiary;
 }
 
 .inputContainer:has(.inputElement:disabled) .icon {
@@ -184,7 +184,7 @@
 }
 .inputContainer:has(.inputElement:disabled):hover,
 .inputContainer:has(.inputElement:disabled):focus-within {
-  @apply border-[#e5e7eb] shadow-none;
+  @apply border border-border-default shadow-none;
 }
 
 .errorfield {

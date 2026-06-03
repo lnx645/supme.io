@@ -5,10 +5,13 @@ export const AppLayout = () => {
   return (
     <div className={css.wrapper}>
       <aside className={css.aside}>
-        <Aside/>
+        <Aside />
       </aside>
       <div className={css.main}>
-        <Outlet />
+        <nav className={css.navbar}>WJWJJW</nav>
+        <div className={css.container}>
+          <Outlet />
+        </div>
       </div>
     </div>
   );

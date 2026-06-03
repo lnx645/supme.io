@@ -6,6 +6,7 @@ interface CssExports {
   footer_role: string;
   footer_user: string;
   footer_user_name: string;
+  logo_brand: string;
   main: string;
   nav: string;
   wrapper: string;

@@ -1,0 +1,14 @@
+@reference "../../../css/main.css";
+
+.page_title {
+  @apply font-semibold;
+}
+
+.page_title > p {
+  font-size: 14px;
+  @apply text-text-secondary mb-3 font-normal;
+}
+
+.text-link{
+    @apply text-xs hover:underline mt-1 hover:text-accent  inline-flex items-center;
+}

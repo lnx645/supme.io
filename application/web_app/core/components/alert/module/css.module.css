@@ -1,0 +1,13 @@
+@reference "../../../../css/main.css";
+.alert {
+  background: linear-gradient(
+    135deg,
+    rgba(168, 51, 15, 0.08),
+    rgba(168, 51, 15, 0.03)
+  );
+  @apply border bg-warning-default text-bg-muted text-sm  rounded-md border-border-default py-2.5 p-2;
+  border: 1px solid rgba(168, 51, 15, 0.2);
+}
+.alert > b {
+    font-weight: 500;
+}

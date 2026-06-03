@@ -11,11 +11,11 @@
 
 .page_title > p{
   font-size: 14px;
-  @apply text-text-secondary mb-7 font-normal;
+  @apply text-text-secondary mb-3 font-normal;
 }
 
 .menu_grid {
-  @apply grid grid-cols-1 md:grid-cols-2 gap-2;
+  @apply grid grid-cols-1 md:grid-cols-2 mt-3 gap-2;
 }
 .menu_item{
   @apply border-border-default rounded-xs hover:bg-bg-selected cursor-pointer bg-bg-elevated p-4 border hover:border-border-strong;

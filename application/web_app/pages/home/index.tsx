@@ -1,9 +1,11 @@
 import { Button } from "@web/core/components/button/button";
 import css from "./css.module.css";
 import { Marquee } from "@devnomic/marquee";
-import { useAsyncValue } from "react-router";
+import { useAsyncValue, useNavigate } from "react-router";
+import { Alert } from "@web/core/components/alert";
 export const Component = async () => {
   const data: any = useAsyncValue();
+  const navigate = useNavigate();
   return (
     <div className={css.wrapper}>
       <div className={css.page_title}>
@@ -12,6 +14,10 @@ export const Component = async () => {
           Berikut adalah langkah selanjutnya yang bisa kamu ambil
         </p>
       </div>
+      <Alert>
+        Harap verifikasi email kamu <b>{data?.user?.email}</b> sebelum kamu bisa
+        menerima dukungan.
+      </Alert>
       <div className={css.menu_grid}>
         <div className={css.menu_item}>
           <h1 className={css.item_title}>Edit Page</h1>
@@ -19,11 +25,13 @@ export const Component = async () => {
             Kustomisasi halaman profil kamu. Lengkapi info, ubah foto, dan buat
             halaman buatanmu jadi lebih menarik bagi para penggemar!
           </p>
-          <Button size="xs">Atur Halaman</Button>
+          <Button onClick={() => navigate("page/edit")} size="xs">
+            Atur Halaman
+          </Button>
         </div>
 
         <div className={css.menu_item}>
-          <h1 className={css.item_title}>Setting Unit Dukungan</h1>
+          <h1 className={css.item_title}>Setting Unit Gift</h1>
           <p className={css.item_description}>
             Atur nominal minimal tip, kustomisasi pesan apresiasi, hingga ubah
             unit panggilan kesayangan untuk para pendukungmu.

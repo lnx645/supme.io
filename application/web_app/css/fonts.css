@@ -1,7 +1,4 @@
-/* ==========================================================================
-   GEIST SANS FONT FACE DECLARATIONS
-   Pastikan letak file font (.ttf/.otf/.woff2) sesuai dengan path url() di bawah.
-   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 
 /* Thin */
 @font-face {

@@ -9,6 +9,7 @@ import {
 const Home = () => import("@web/pages/home");
 const Login = () => import("@web/pages/login");
 const Register = () => import("@web/pages/register");
+const EditPage = () => import("@web/pages/page/edit-page");
 
 const routes = createBrowserRouter([
   {
@@ -28,6 +29,11 @@ const routes = createBrowserRouter([
       {
         path: "",
         lazy: Home,
+      },
+
+      {
+        path: "page/edit",
+        lazy: EditPage,
       },
 
       {

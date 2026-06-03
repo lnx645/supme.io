@@ -68,6 +68,7 @@
   --color-info-soft: var(--info-soft);
   --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
   --font-optimistic: "Optimistic";
+  --font-mono:"JetBrains Mono", monospace;
 }
 
 body {

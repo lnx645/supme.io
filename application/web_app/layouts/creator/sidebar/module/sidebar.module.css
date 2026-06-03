@@ -6,7 +6,7 @@
 
 .nav {
   /* Tinggi tetap untuk nav (h-14), flex-none memastikan ukurannya tidak mengecil */
-  @apply h-14  border-b border-border-default flex-none;
+  @apply h-14  border-b border-border-default flex-none flex items-center px-5;
 }
 
 .main {
@@ -46,4 +46,7 @@
 }
 .footer_role{
     @apply text-[11px] text-text-tertiary;
+}
+.logo_brand{
+  @apply select-none text-lg font-bold text-accent;
 }

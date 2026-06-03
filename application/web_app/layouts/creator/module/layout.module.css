@@ -12,7 +12,6 @@
 }
 .main {
   @apply bg-bg-surface flex-1 min-h-screen max-h-screen overflow-y-auto;
-  @apply p-4;
   scrollbar-width: thin;
   scrollbar-color: var(--border-strong) var(--bg-app);
 }
@@ -34,4 +33,11 @@ linear-gradient(135deg, rgba(168, 51, 15, 0.08), rgba(168, 51, 15, 0.03)) */
 
 .main::-webkit-scrollbar-thumb:hover {
   background: var(--accent);
+}
+
+.navbar{
+  @apply h-12 w-full flex items-center lg:hidden px-3 border-b border-border-default;
+}
+.container{
+    @apply p-4 container mx-auto;
 }

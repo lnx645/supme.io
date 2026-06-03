@@ -1,0 +1,20 @@
+@reference "../../../../css/main.css";
+
+.menu_item {
+  @apply flex items-center justify-between px-[20px] py-[6px];
+}
+
+.menu_content {
+  @apply items-center flex flex-1 gap-x-2 [&.active]:bg-red-500!;
+}
+
+.menu_name {
+  @apply text-[13px] font-[500] text-text-primary;
+}
+.menu_item > .menu_content > svg {
+  @apply size-4;
+}
+
+.badge{
+    @apply font-mono;
+}

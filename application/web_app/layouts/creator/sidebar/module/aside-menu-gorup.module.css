@@ -1,0 +1,14 @@
+@reference "../../../../css/main.css";
+
+.menu_group {
+  @apply border-y py-2 first:border-b-0 last:border-t-0 last:border-0 first:border-t-0 border-y-border-default;
+}
+.menu_label {
+  @apply block px-5 text-[10.5px] font-bold uppercase text-text-tertiary;
+}
+.menu_content {
+  @apply block;
+}
+.menu_header {
+  @apply block py-2;
+}
