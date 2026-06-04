@@ -1,0 +1,37 @@
+@reference "../../../../../css/main.css";
+
+.wrapper {
+  @apply bg-white overflow-hidden p-4;
+}
+.title {
+  @apply text-xs text-text-secondary;
+}
+.title h1 {
+  @apply font-semibold;
+}
+.link {
+  @apply flex flex-col gap-1 mt-3;
+}
+.input {
+  @apply lg:max-w-full lg:min-w-full;
+}
+
+.support_hellpers {
+  @apply bg-white text-xs py-3;
+}
+
+.support_hellpers ul {
+  @apply list-disc pl-4;
+}
+
+.support_hellpers li {
+  @apply text-text-primary font-normal;
+}
+
+.support_hellpers span {
+  @apply text-xs;
+}
+
+.support_hellpers_title{
+    @apply font-semibold mb-1 block;
+}

@@ -1,0 +1,86 @@
+[
+  {
+    "key": "YouTube",
+    "url": "https://youtube.com/",
+    "supported_formats": [
+      "https://youtube.com/channel/{channel_id}",
+      "https://youtube.com/c/{custom_username}",
+      "https://youtube.com/user/{username}",
+      "https://youtube.com/@{username}"
+    ]
+  },
+  {
+    "key": "Facebook",
+    "url": "https://facebook.com/",
+    "supported_formats": [
+      "https://facebook.com/{username}",
+      "https://facebook.com/profile.php?id={user_id}"
+    ]
+  },
+  {
+    "key": "Instagram",
+    "url": "https://instagram.com/",
+    "supported_formats": [
+      "https://instagram.com/{username}"
+    ]
+  },
+  {
+    "key": "X",
+    "url": "https://x.com/",
+    "supported_formats": [
+      "https://x.com/{username}",
+      "https://twitter.com/{username}"
+    ]
+  },
+  {
+    "key": "TikTok",
+    "url": "https://tiktok.com/",
+    "supported_formats": [
+      "https://tiktok.com/@{username}"
+    ]
+  },
+  {
+    "key": "LinkedIn",
+    "url": "https://linkedin.com/",
+    "supported_formats": [
+      "https://linkedin.com/in/{username}",
+      "https://linkedin.com/company/{company_slug}"
+    ]
+  },
+  {
+    "key": "Threads",
+    "url": "https://threads.net/",
+    "supported_formats": [
+      "https://threads.net/@{username}"
+    ]
+  },
+  {
+    "key": "WhatsApp",
+    "url": "https://wa.me/",
+    "supported_formats": [
+      "https://wa.me/{phone_number}",
+      "https://api.whatsapp.com/send?phone={phone_number}"
+    ]
+  },
+  {
+    "key": "Telegram",
+    "url": "https://t.me/",
+    "supported_formats": [
+      "https://t.me/{username}"
+    ]
+  },
+  {
+    "key": "Pinterest",
+    "url": "https://pinterest.com/",
+    "supported_formats": [
+      "https://pinterest.com/{username}"
+    ]
+  },
+  {
+    "key": "Other",
+    "url": "",
+    "supported_formats": [
+      "{full_url}"
+    ]
+  }
+]

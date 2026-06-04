@@ -6,6 +6,10 @@ import { Select, SelectItem } from "@web/core/components/select/select";
 import { useState } from "react";
 import { useFileDialog } from "@reactuses/core";
 import default_avatar from "@web/assets/img/default_avatar.png";
+import { Textarea } from "@web/core/components/text-area";
+import { LinkFields } from "@web/core/features/profile-page/links";
+import { Modal, ModalTrigger } from "@web/core/components/modal";
+import { ModalContent } from "@web/core/components/modal/modal-content";
 export const Component = () => {
   const [avatarImage, setImageSrc] = useState<string | null>(null);
   const [bannerImage, setBannerImage] = useState<string | null>(null);
@@ -95,6 +99,22 @@ export const Component = () => {
             <SelectItem>Malaysya</SelectItem>
           </Select>
           <Input isClearable label="Kategori Kreator" inputSize="xs" />
+          <Textarea
+            label="Bio"
+            placeholder="Tentang Kamu"
+            inputSize="xs"
+            maxLength={1000}
+          />
+
+          <div>
+            <Modal>
+              <ModalTrigger>OPen</ModalTrigger>
+              <ModalContent>
+                <LinkFields />
+              </ModalContent>
+            </Modal>
+          </div>
+
           <div className="flex gap-3 items-center">
             <Button variant="success">Simpan</Button>
           </div>

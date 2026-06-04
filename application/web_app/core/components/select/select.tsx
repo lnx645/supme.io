@@ -51,7 +51,7 @@ export function Select<T extends object>({
         )}
       >
         <Button className={styles.trigger}>
-          <SelectValue className={styles.value} />
+          <SelectValue  className={styles.value} />
           <ChevronDown aria-hidden className={styles.icon} size={16} />
         </Button>
         

@@ -1,14 +1,14 @@
 {
   "allFiles": [
+    "/static/js/async/631.js",
+    "/static/css/async/869.css",
+    "/static/js/async/869.js",
+    "/static/css/async/444.css",
+    "/static/js/async/444.js",
     "/static/css/async/572.css",
     "/static/js/async/572.js",
     "/static/css/creator.css",
     "/static/js/creator.js",
-    "/static/css/async/296.css",
-    "/static/js/async/296.js",
-    "/static/js/async/631.js",
-    "/static/css/async/869.css",
-    "/static/js/async/869.js",
     "/static/font/optimistic.ttf",
     "/static/font/Geist-ExtraBoldItalic.ttf",
     "/static/font/Geist-ThinItalic.ttf",
@@ -34,7 +34,6 @@
   "entries": {
     "creator": {
       "assets": [
-        "static/image/default_avatar.png",
         "static/font/Geist-Black.ttf",
         "static/font/Geist-Bold.ttf",
         "static/font/Geist-ExtraBold.ttf",
@@ -53,7 +52,8 @@
         "static/font/Geist-ExtraLightItalic.ttf",
         "static/font/Geist-ExtraBoldItalic.ttf",
         "static/font/Geist-Thin.ttf",
-        "static/font/Geist-SemiBoldItalic.ttf"
+        "static/font/Geist-SemiBoldItalic.ttf",
+        "static/image/default_avatar.png"
       ],
       "html": [
         "/creator.html"
@@ -68,15 +68,15 @@
       },
       "async": {
         "js": [
+          "/static/js/async/572.js",
+          "/static/js/async/444.js",
           "/static/js/async/869.js",
-          "/static/js/async/631.js",
-          "/static/js/async/296.js",
-          "/static/js/async/572.js"
+          "/static/js/async/631.js"
         ],
         "css": [
-          "/static/css/async/869.css",
-          "/static/css/async/296.css",
-          "/static/css/async/572.css"
+          "/static/css/async/572.css",
+          "/static/css/async/444.css",
+          "/static/css/async/869.css"
         ]
       }
     }

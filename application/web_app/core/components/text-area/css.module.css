@@ -1,0 +1,319 @@
+/* ================= WRAPPER & LABELS ================= */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 6px;
+}
+
+.label {
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-family: var(--font-sans, system-ui, sans-serif);
+}
+
+/* ================= INPUT CONTAINER ================= */
+.inputContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: var(--bg-elevated);
+  border: 1px solid var(--border);
+  transition: all 0.2s ease-in-out;
+  font-family: var(--font-sans, system-ui, sans-serif);
+  box-sizing: border-box;
+}
+
+.inputWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.inputElement {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+
+  color: var(--text-primary);
+  padding: 0 12px;
+  padding-right: 90rem;
+  font-weight: 400;
+  box-sizing: border-box;
+}
+
+.inputElement::placeholder {
+  color: var(--text-tertiary);
+  opacity: 1;
+}
+
+/* Autofill text fix */
+.inputElement:-webkit-autofill {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: var(--text-primary);
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+
+/* ================= TOMBOL CLEAR INPUT ================= */
+.clearButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  padding: 0 10px;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  height: 100%;
+  transition: color 0.15s ease;
+  outline: none;
+}
+
+.clearButton:hover {
+  color: var(--accent);
+}
+
+/* ================= UKURAN (SIZES) ================= */
+.size-xs {
+  height: 40px;
+}
+.size-xs .inputElement {
+  font-size: 14px;
+}
+.size-xs .prefix,
+.size-xs .suffix {
+  font-size: 13px;
+}
+
+.size-sm {
+  height: 48px;
+}
+.size-sm .inputElement {
+  font-size: 16px;
+}
+
+.size-md {
+  height: 56px;
+}
+.size-md .inputElement {
+  font-size: 17px;
+}
+
+.size-lg {
+  height: 64px;
+}
+.size-lg .inputElement {
+  font-size: 18px;
+}
+
+/* ================= LENGKUNGAN (RADIUS VARIATION) ================= */
+.radius-none {
+  border-radius: 0;
+}
+.radius-sm {
+  border-radius: 4px;
+}
+.radius-md {
+  border-radius: 6px;
+}
+.radius-lg {
+  border-radius: 8px;
+}
+.radius-xl {
+  border-radius: 16px;
+}
+.radius-full {
+  border-radius: 9999px;
+}
+
+.radius-sm .prefix {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.radius-sm .suffix {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+.radius-md .prefix {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.radius-md .suffix {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.radius-lg .prefix {
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+}
+.radius-lg .suffix {
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
+.radius-full .prefix {
+  border-top-left-radius: 9999px;
+  border-bottom-left-radius: 9999px;
+  padding-left: 16px;
+}
+.radius-full .suffix {
+  border-top-right-radius: 9999px;
+  border-bottom-right-radius: 9999px;
+  padding-right: 16px;
+}
+
+/* ================= WARNA STATE INTERAKSI (COLOR) ================= */
+.color-default {
+  border-color: #dedede;
+}
+.color-default:has(.inputElement:hover) {
+  border-color: #c0c0c0;
+  box-shadow: 0 0 0 2px #f7f7f7 inset;
+}
+.color-default:has(.inputElement:focus),
+.color-default:has(.inputElement:focus-within),
+.color-default:has(.inputElement:active) {
+  border-color: #237df2;
+  box-shadow: 0 0 0 2px #d1e4fc inset;
+}
+
+.color-success {
+  border-color: var(--success);
+}
+.color-success:has(.inputElement:hover) {
+  border-color: var(--success-hover, var(--success));
+  box-shadow: 0 0 0 2px var(--success-soft, #f4fbf7) inset;
+}
+.color-success:has(.inputElement:focus),
+.color-success:has(.inputElement:focus-within),
+.color-success:has(.inputElement:active) {
+  border-color: var(--success);
+  box-shadow: 0 0 0 2px var(--success-soft, #e6f6ec) inset;
+}
+
+.color-warning {
+  border-color: var(--warning);
+}
+.color-warning:has(.inputElement:hover) {
+  border-color: var(--warning-hover, var(--warning));
+  box-shadow: 0 0 0 2px var(--warning-soft, #fffdf5) inset;
+}
+.color-warning:has(.inputElement:focus),
+.color-warning:has(.inputElement:focus-within),
+.color-warning:has(.inputElement:active) {
+  border-color: var(--warning);
+  box-shadow: 0 0 0 2px var(--warning-soft, #fef7e1) inset;
+}
+
+.color-danger {
+  border-color: var(--danger);
+}
+.color-danger:has(.inputElement:hover) {
+  border-color: var(--danger-hover, var(--danger));
+  box-shadow: 0 0 0 2px var(--danger-soft, #fdf5f5) inset;
+}
+.color-danger:has(.inputElement:focus),
+.color-danger:has(.inputElement:focus-within),
+.color-danger:has(.inputElement:active) {
+  border-color: var(--danger);
+  box-shadow: 0 0 0 2px var(--danger-soft, #fce8e8) inset;
+}
+
+/* ================= DISABLED STATE ================= */
+.inputContainer:has(.inputElement:disabled) {
+  background-color: var(--bg-muted);
+  border-color: var(--border-strong);
+  cursor: not-allowed;
+}
+.inputContainer:has(.inputElement:disabled) .inputElement {
+  cursor: not-allowed;
+  color: var(--text-tertiary);
+}
+.inputContainer:has(.inputElement:disabled) .prefix,
+.inputContainer:has(.inputElement:disabled) .suffix {
+  background-color: var(--bg-muted);
+  color: var(--text-tertiary);
+}
+
+/* ================= PESAN ERROR ================= */
+.errorfield {
+  font-size: 12px;
+  color: var(--danger);
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.errorfield svg {
+  width: 15px;
+  height: 15px;
+}
+
+/* ================= CHARACTER COUNTER ================= */
+.characterCounter {
+  font-size: 13px;
+  color: var(--text-secondary);
+  padding: 0 12px;
+  user-select: none;
+  font-variant-numeric: tabular-nums;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  flex-shrink: 0;
+}
+.inputContainer:has(.inputElement:disabled) .characterCounter {
+  color: var(--text-tertiary);
+}
+
+/* ================= FIX BERTAUTAN KHUSUS TEXTAREA ================= */
+
+/* Matikan tinggi kaku dari utilitas .size-* agar container membungkus textarea secara fleksibel */
+.textareaContainer {
+  align-items: flex-start !important;
+  padding-top: 0;
+  padding-bottom: 0;
+  height: auto !important;
+}
+
+/* Paksa wrapper internal textarea mengikuti struktur flex-start */
+.textareaContainer .inputWrapper {
+  height: auto !important;
+  align-items: flex-start !important;
+}
+
+/* Styling inti elemen textarea */
+.textareaElement {
+  resize: vertical; /* User bisa tarik tinggi kolom sesuai kenyamanan */
+  padding: 8px !important;
+  line-height: 1.5;
+  font-family: inherit;
+}
+
+.textareaContainer .icon,
+.textareaContainer .prefix,
+.textareaContainer .suffix {
+  height: auto !important;
+  align-items: flex-start;
+  padding-top: 2px;
+}
+
+.textareaClearButton {
+  height: auto !important;
+  align-items: flex-start;
+  margin-top: 2px;
+}
+
+.textareaCounter {
+  position: absolute;
+  right: 0;
+  height: auto !important;
+  align-items: flex-start;
+  margin-top: 4px;
+}
