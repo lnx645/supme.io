@@ -3,15 +3,13 @@ import css from "./module/edit-page.module.css";
 import { Button } from "@web/core/components/button/button";
 
 import { Select, SelectItem } from "@web/core/components/select/select";
-import { UploadImageModal } from "@web/core/features/image-uploader";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useFileDialog } from "@reactuses/core";
-import { file } from "bun";
-
+import default_avatar from "@web/assets/img/default_avatar.png";
 export const Component = () => {
   const [avatarImage, setImageSrc] = useState<string | null>(null);
   const [bannerImage, setBannerImage] = useState<string | null>(null);
-  const [files, open, reset] = useFileDialog({
+  const [_, open, reset] = useFileDialog({
     accept: "image/*",
     multiple: false,
   });
@@ -42,7 +40,11 @@ export const Component = () => {
       <div className="flex flex-col">
         <div className={css.image_header}>
           <div className={css.image_banner}>
-            {bannerImage ? <img src={bannerImage} alt="Banner" /> : null}
+            {bannerImage ? (
+              <img src={bannerImage} alt="Banner" />
+            ) : (
+              <img src={default_avatar} alt="Avatar default" />
+            )}
             <div className={css.banner_overlay} />
             <button
               type="button"
@@ -54,7 +56,11 @@ export const Component = () => {
           </div>
 
           <div className={css.avatar}>
-            {avatarImage ? <img src={avatarImage} alt="Avatar" /> : null}
+            {avatarImage ? (
+              <img src={avatarImage} alt="Avatar" />
+            ) : (
+              <img src={default_avatar} alt="Avatar default" />
+            )}
             <button
               onClick={() => uploadTriggerFunction("avatar")}
               className={css.avatar_overlay}

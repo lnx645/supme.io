@@ -73,15 +73,6 @@ export const Component = () => {
             inputSize="xs"
             label="Password"
           />
-          <Select size="xs" label="Kategori Kreator">
-            <SelectItem>Programming</SelectItem>
-            <SelectItem>Programming</SelectItem>
-            <SelectItem>Programming</SelectItem>
-            <SelectItem>Programming</SelectItem>
-            <SelectItem>Programming</SelectItem>
-            <SelectItem>Programming</SelectItem>
-            <SelectItem>Programming</SelectItem>
-          </Select>
           <div className={css.button_form}>
             <Button isDisabled={loading} type="submit">
               {loading ? <RingSpinner /> : "Login"}
