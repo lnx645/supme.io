@@ -34,10 +34,19 @@ linear-gradient(135deg, rgba(168, 51, 15, 0.08), rgba(168, 51, 15, 0.03)) */
 .main::-webkit-scrollbar-thumb:hover {
   background: var(--accent);
 }
+.navbar_menu {
+  @apply ml-auto;
+}
+.navbar_menu {
+  @apply size-8 text-btn-text rounded-full p-1 flex justify-center items-center hover:bg-btn-secondary  active:scale-[0.97] active:bg-btn-secondary-hover;
+}
 
 .navbar {
-  @apply h-14 w-full bg-white sticky top-0 z-99 flex items-center lg:hidden px-3 border-b border-border-default;
+  @apply h-14 w-full bg-white sticky top-0 z-99 flex items-center lg:hidden border-b border-border-default;
 }
 .container {
   @apply px-2 py-3  lg:py-7 lg:p-8 container mx-auto;
+}
+.wrapper_navbar {
+  @apply flex items-center;
 }

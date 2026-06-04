@@ -10,6 +10,7 @@ import { Textarea } from "@web/core/components/text-area";
 import { LinkFields } from "@web/core/features/profile-page/links";
 import { Modal, ModalTrigger } from "@web/core/components/modal";
 import { ModalContent } from "@web/core/components/modal/modal-content";
+import { Label } from "@web/core/components/label";
 export const Component = () => {
   const [avatarImage, setImageSrc] = useState<string | null>(null);
   const [bannerImage, setBannerImage] = useState<string | null>(null);
@@ -98,7 +99,6 @@ export const Component = () => {
             <SelectItem>Djakarta</SelectItem>
             <SelectItem>Malaysya</SelectItem>
           </Select>
-          <Input isClearable label="Kategori Kreator" inputSize="xs" />
           <Textarea
             label="Bio"
             placeholder="Tentang Kamu"
@@ -107,8 +107,11 @@ export const Component = () => {
           />
 
           <div>
+            <Label>Social Media Link</Label>
             <Modal>
-              <ModalTrigger>OPen</ModalTrigger>
+              <div className={css.add_new_btn}>
+                <Button size="xs">Tambah Link</Button>
+              </div>
               <ModalContent>
                 <LinkFields />
               </ModalContent>

@@ -1,0 +1,6 @@
+.label {
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-family: var(--font-sans, system-ui, sans-serif);
+}

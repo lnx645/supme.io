@@ -139,3 +139,6 @@
   flex-direction: column;
   gap: 12px;
 }
+.add_new_btn{
+  @apply inline-block;
+}
