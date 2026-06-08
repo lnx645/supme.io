@@ -1,7 +1,6 @@
 import type { ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { Toaster } from "sonner";
-import "@devnomic/marquee/dist/index.css";
 import csstoast from "@web/css/toast.module.css";
 import clsx from "clsx";
 type Props = {

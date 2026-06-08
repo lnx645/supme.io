@@ -12,13 +12,13 @@ func Web() {
 
 	login := controllers.NewLoginController()
 	userController := controllers.NewUserController()
-	overlayWebsocket := ws.NewOverlayWebsocket()
+	overlayWebsocket := controllers.NewOverlayWebsocketController()
 
 	testOverlayController := ws.NewTestOverlayController()
 
 	routes := facades.Route()
 	routes.Post("/api/login", login.Login).Name("auth.login")
-	routes.Get("/ws/overlay", overlayWebsocket.Index).Name("overlay.websocket")
+	routes.Get("/realtime/overlay", overlayWebsocket.Index).Name("overlay.websocket")
 	routes.Post("/overlay/test", testOverlayController.Index).Name("websocket")
 	//auth middleware only
 	routes.Middleware(middleware.AuthMiddleware()).Prefix("api").Group(func(router route.Router) {

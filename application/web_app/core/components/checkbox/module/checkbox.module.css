@@ -1,0 +1,109 @@
+@reference "../../../../css/main.css";
+
+/* --- Container --- */
+.fb-checkbox-field {
+  @apply flex items-center gap-2.5 py-1.5 w-full cursor-pointer;
+}
+
+.fb-checkbox-text-container {
+  @apply flex flex-col justify-center select-none;
+}
+
+.fb-checkbox-label {
+  /* Font size 15px dengan warna teks utama Facebook */
+  @apply text-[15px] font-normal text-text-primary leading-tight cursor-pointer;
+}
+
+.fb-checkbox-description {
+  @apply text-[13px] text-text-secondary mt-0.5 leading-normal;
+}
+
+.fb-checkbox-error {
+  @apply text-[13px] text-danger-default mt-0.5 font-medium;
+}
+
+/* --- Tombol Checkbox (Lingkaran Sempurna ala image_75c3c9.png) --- */
+.fb-checkbox-button {
+  @apply relative inline-flex items-center justify-center shrink-0 rounded-md
+         border-2 border-[#bcc0c4] dark:border-border-strong bg-white 
+         transition-all duration-150 ease-in-out outline-none cursor-pointer;
+
+  /* State Hover pas Belum Dicentang */
+  &:hover:not([data-selected]):not([data-disabled]) {
+    @apply border-text-secondary bg-[#1877f20d];
+  }
+
+  /* Focus Ring */
+  &[data-focus-visible] {
+    @apply ring-2 ring-offset-2 ring-accent;
+  }
+
+  /* State Disabled */
+  &[data-disabled] {
+    @apply opacity-40 cursor-not-allowed bg-bg-muted;
+  }
+}
+
+/* --- SVG Icon Centang dengan Animasi Fade & Scale In --- */
+.fb-checkbox-icon {
+  @apply w-0 h-0 opacity-0 scale-75 transition-all duration-150 ease-out;
+  
+  /* Saat aktif/selected, icon centang langsung muncul tegas */
+  .fb-checkbox-button[data-selected] & {
+    @apply opacity-100 scale-100;
+  }
+}
+
+/* ----------------------------------
+   MULTIPLE SIZES (Ukuran Proporsional)
+---------------------------------- */
+
+/* Small */
+.fb-checkbox-button[data-size="sm"] {
+  @apply h-[18px] w-[18px];
+  
+  & .fb-checkbox-icon {
+    .fb-checkbox-button[data-selected] & { @apply w-[10px] h-[10px]; }
+  }
+}
+
+/* Medium (Ukuran standar pas sesuai gambar referensi) */
+.fb-checkbox-button[data-size="md"] {
+  @apply h-[21px] w-[21px];
+  
+  & .fb-checkbox-icon {
+    .fb-checkbox-button[data-selected] & { @apply w-[13px] h-[13px]; }
+  }
+}
+
+/* Large */
+.fb-checkbox-button[data-size="lg"] {
+  @apply h-[25px] w-[25px];
+  
+  & .fb-checkbox-icon {
+    .fb-checkbox-button[data-selected] & { @apply w-[16px] h-[16px]; }
+  }
+}
+
+/* ----------------------------------
+   MULTIPLE COLORS (Warna Saat Aktif)
+---------------------------------- */
+
+/* Facebook Blue (Sama persis dengan warna biru di image_75c3c9.png) */
+.fb-checkbox-button[data-color="facebook"][data-selected] {
+  @apply bg-accent border-accent;
+  
+  &:hover {
+    @apply bg-accent-hover border-accent-hover;
+  }
+}
+
+/* Success Green */
+.fb-checkbox-button[data-color="success"][data-selected] {
+  @apply bg-success-default border-success-default;
+}
+
+/* Danger Red */
+.fb-checkbox-button[data-color="danger"][data-selected] {
+  @apply bg-danger-default border-danger-default;
+}

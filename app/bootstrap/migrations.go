@@ -13,5 +13,9 @@ func Migrations() []schema.Migration {
 		&migrations.M20260530111740UpdateUsersTable{},
 		&migrations.M20260530114803UpdateUserAuthLogTable{},
 		&migrations.M20260530114828CreateUserAuthLogTable{},
+		&migrations.M20260607131145CreateCreatorTable{},
+		&migrations.M20260607132554CreateCreatorCategoryTable{},
+		&migrations.M20260607132952AddCategoryToCreatorTable{},
+		&migrations.M20260607133553AddOverlayKeyToCreatorTable{},
 	}
 }

@@ -3,10 +3,11 @@ import css from "./module/layout.module.css";
 import { Aside } from "./sidebar/aside";
 import MenuBar from "@svg/MaterialSymbolsMenuRounded.svg";
 import { Button } from "react-aria-components";
+import clsx from "clsx";
 export const AppLayout = () => {
   return (
-    <div className={css.wrapper}>
-      <aside className={css.aside}>
+    <div className={clsx(css.wrapper, "@container")}>
+      <aside className={clsx(css.aside, "@lg:hidden")}>
         <Aside />
       </aside>
       <div className={css.main}>

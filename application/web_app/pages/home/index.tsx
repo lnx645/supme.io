@@ -1,6 +1,5 @@
 import { Button } from "@web/core/components/button/button";
 import css from "./css.module.css";
-import { Marquee } from "@devnomic/marquee";
 import { useAsyncValue, useNavigate } from "react-router";
 import { Alert } from "@web/core/components/alert";
 export const Component = async () => {

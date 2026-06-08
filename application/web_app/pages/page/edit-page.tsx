@@ -38,10 +38,6 @@ export const Component = () => {
   }
   return (
     <div className={css.edit_wrapper}>
-      {/* <div className={css.page_title}>
-        <h2>Edit Page</h2>
-        <p>Edit Informasi Halaman Kreator Anda Anda</p>
-      </div> */}
       <div className="flex flex-col">
         <div className={css.image_header}>
           <div className={css.image_banner}>
@@ -106,8 +102,10 @@ export const Component = () => {
             maxLength={1000}
           />
 
-          <div>
-            <Label>Social Media Link</Label>
+          <div className="flex flex-col items-start">
+            <div className="mb-1">
+              <Label>Social Media Link</Label>
+            </div>
             <Modal>
               <div className={css.add_new_btn}>
                 <Button size="xs">Tambah Link</Button>
@@ -120,6 +118,7 @@ export const Component = () => {
 
           <div className="flex gap-3 items-center">
             <Button variant="success">Simpan</Button>
+            <Button variant="ghost-green">Preview</Button>
           </div>
         </div>
       </div>

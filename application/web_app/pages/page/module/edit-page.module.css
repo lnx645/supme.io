@@ -1,7 +1,7 @@
 @reference "../../../css/main.css";
 
 .page_title {
-  @apply font-semibold;
+  @apply font-semibold shadow;
 }
 
 .page_title > p {

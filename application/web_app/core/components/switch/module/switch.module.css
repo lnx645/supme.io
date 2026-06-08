@@ -1,0 +1,117 @@
+@reference "../../../../css/main.css";
+
+/* --- Container Utama (Facebook Style: Label kiri, Switch kanan) --- */
+.fb-switch-field {
+  @apply flex items-center justify-between gap-4 py-2 w-full;
+}
+
+.fb-switch-text-container {
+  @apply flex flex-col flex-1;
+}
+
+.fb-switch-label {
+  @apply text-[15px] font-medium text-text-primary leading-tight select-none cursor-pointer;
+}
+
+.fb-switch-description {
+  @apply text-[13px] text-text-secondary mt-0.5 leading-normal;
+}
+
+.fb-switch-error {
+  @apply text-[13px] text-danger-default mt-0.5 font-medium;
+}
+
+.fb-switch-button {
+  /* Diperhalus dengan transition-colors duration-200 */
+  @apply relative inline-flex shrink-0 cursor-pointer rounded-full p-[2px] 
+         transition-colors duration-200 ease-in-out outline-none
+         bg-[#bcc0c4] dark:bg-border-strong;
+
+  /* Focus ring ala Facebook */
+  &[data-focus-visible] {
+    @apply ring-2 ring-offset-2 ring-accent;
+  }
+
+  /* State Disabled */
+  &[data-disabled] {
+    @apply opacity-50 cursor-not-allowed;
+  }
+}
+
+/* --- Base Thumb dengan Animasi Elastic --- */
+.fb-switch-thumb {
+  /* Ditambahkan transition-all dan cubic-bezier (out-back / smooth) untuk animasi premium */
+  @apply pointer-events-none block rounded-full bg-white shadow-sm 
+         transition-all duration-200 ease-[cubic-bezier(0.25,1,0.5,1)] transform translate-x-0;
+  
+  /* Efek melar/stretching ala iOS/Facebook saat ditekan (active/pressed) */
+  .fb-switch-button[data-pressed] & {
+    @apply w-6; /* Membuat bulatan sedikit melebar saat di-hold */
+  }
+}
+
+/* ----------------------------------
+   SIZES VARIATION (Ukuran & Jarak Translasi)
+---------------------------------- */
+
+/* Small Size */
+.fb-switch-button[data-size="sm"] {
+  @apply h-5 w-9;
+
+  & .fb-switch-thumb {
+    @apply h-4 w-4;
+  }
+  &[data-selected] .fb-switch-thumb {
+    @apply translate-x-4;
+  }
+  /* Menyesuaikan kelebaran thumb saat ditekan di size kecil */
+  &[data-pressed] .fb-switch-thumb {
+    @apply w-5; 
+  }
+  &[data-selected][data-pressed] .fb-switch-thumb {
+    @apply translate-x-3; /* Menyeimbangkan posisi saat melar ke kiri */
+  }
+}
+
+/* Medium Size (Default Facebook) */
+.fb-switch-button[data-size="md"] {
+  @apply h-6 w-11;
+
+  & .fb-switch-thumb {
+    @apply h-5 w-5;
+  }
+  &[data-selected] .fb-switch-thumb {
+    @apply translate-x-5;
+  }
+  &[data-pressed] .fb-switch-thumb {
+    @apply w-6.5; 
+  }
+  &[data-selected][data-pressed] .fb-switch-thumb {
+    @apply translate-x-3.5; 
+  }
+}
+
+/* Large Size */
+.fb-switch-button[data-size="lg"] {
+  @apply h-7 w-14;
+
+  & .fb-switch-thumb {
+    @apply h-6 w-6;
+  }
+  &[data-selected] .fb-switch-thumb {
+    @apply translate-x-7;
+  }
+  &[data-pressed] .fb-switch-thumb {
+    @apply w-8; 
+  }
+  &[data-selected][data-pressed] .fb-switch-thumb {
+    @apply translate-x-5; 
+  }
+}
+
+/* ----------------------------------
+   COLORS VARIATION (Tetap sama)
+---------------------------------- */
+.fb-switch-button[data-color="facebook"][data-selected] { @apply bg-accent; }
+.fb-switch-button[data-color="success"][data-selected] { @apply bg-success-default; }
+.fb-switch-button[data-color="danger"][data-selected] { @apply bg-danger-default; }

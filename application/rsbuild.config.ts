@@ -3,15 +3,19 @@ import { pluginReact } from "@rsbuild/plugin-react";
 import { pluginTailwindcss } from "@rsbuild/plugin-tailwindcss";
 import { pluginSvgr } from "@rsbuild/plugin-svgr";
 import { pluginTypedCSSModules } from "@rsbuild/plugin-typed-css-modules";
-import classRename from "postcss-rename";
-import variableRename from "postcss-rename/variable";
 import { pluginImageCompress } from "@rsbuild/plugin-image-compress";
 
 export default defineConfig({
   plugins: [
+    pluginTailwindcss({
+      optimize: {
+        minify: true
+      }
+    }),
     pluginReact(),
+
     pluginTypedCSSModules(),
-    pluginTailwindcss(),
+
     pluginImageCompress(),
     pluginSvgr({
       svgrOptions: {
@@ -19,8 +23,8 @@ export default defineConfig({
       },
     }),
   ],
-  dev : {
-    lazyCompilation:true,
+  dev: {
+    lazyCompilation: true,
   },
   html: {
     inject: true,
@@ -38,10 +42,7 @@ export default defineConfig({
     preset: "per-package",
   },
   tools: {
-    postcss: (opts, { addPlugins }) => {
-      addPlugins(classRename({}));
-      addPlugins(variableRename({}));
-    },
+
     rspack: {
       optimization: {
         splitChunks: false,
@@ -52,9 +53,9 @@ export default defineConfig({
   mode: "production",
   output: {
     minify: true,
-    sourceMap:{
-      js:false,
-      css:false,
+    sourceMap: {
+      js: false,
+      css: false,
     },
     manifest: true,
     emitAssets: true,

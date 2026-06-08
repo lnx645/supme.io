@@ -1,4 +1,4 @@
-@import "../../../../css/main.css";
+@reference "../../../../css/main.css";
 .overlay {
   @apply fixed inset-0 z-999 bg-black/35 flex flex-col items-center justify-start;
   backdrop-filter: blur(4px);

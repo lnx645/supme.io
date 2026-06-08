@@ -10,7 +10,7 @@ const Home = () => import("@web/pages/home");
 const Login = () => import("@web/pages/login");
 const Register = () => import("@web/pages/register");
 const EditPage = () => import("@web/pages/page/edit-page");
-
+const PreviewProfile = () => import("@web/pages/page/preview")
 const routes = createBrowserRouter([
   {
     path: "login",
@@ -34,6 +34,10 @@ const routes = createBrowserRouter([
       {
         path: "page/edit",
         lazy: EditPage,
+      },
+      {
+        path: "page/preview",
+        lazy: PreviewProfile,
       },
 
       {
