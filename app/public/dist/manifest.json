@@ -1,16 +1,16 @@
 {
   "allFiles": [
-    "/static/js/async/631.js",
     "/static/css/async/869.css",
     "/static/js/async/869.js",
-    "/static/css/async/572.css",
-    "/static/js/async/572.js",
+    "/static/css/async/531.css",
+    "/static/js/async/531.js",
+    "/static/css/async/381.css",
+    "/static/js/async/381.js",
     "/static/css/creator.css",
     "/static/js/creator.js",
-    "/static/css/async/793.css",
-    "/static/js/async/793.js",
-    "/static/css/async/294.css",
-    "/static/js/async/294.js",
+    "/static/css/async/572.css",
+    "/static/js/async/572.js",
+    "/static/js/async/631.js",
     "/static/font/optimistic.ttf",
     "/static/font/Geist-ExtraBoldItalic.ttf",
     "/static/font/Geist-ThinItalic.ttf",
@@ -36,7 +36,6 @@
   "entries": {
     "creator": {
       "assets": [
-        "static/image/default_avatar.png",
         "static/font/Geist-Black.ttf",
         "static/font/Geist-Bold.ttf",
         "static/font/Geist-ExtraBold.ttf",
@@ -55,7 +54,8 @@
         "static/font/Geist-ExtraLightItalic.ttf",
         "static/font/Geist-ExtraBoldItalic.ttf",
         "static/font/Geist-Thin.ttf",
-        "static/font/Geist-SemiBoldItalic.ttf"
+        "static/font/Geist-SemiBoldItalic.ttf",
+        "static/image/default_avatar.png"
       ],
       "html": [
         "/creator.html"
@@ -70,16 +70,16 @@
       },
       "async": {
         "js": [
-          "/static/js/async/294.js",
-          "/static/js/async/793.js",
+          "/static/js/async/631.js",
           "/static/js/async/572.js",
-          "/static/js/async/869.js",
-          "/static/js/async/631.js"
+          "/static/js/async/381.js",
+          "/static/js/async/531.js",
+          "/static/js/async/869.js"
         ],
         "css": [
-          "/static/css/async/294.css",
-          "/static/css/async/793.css",
           "/static/css/async/572.css",
+          "/static/css/async/381.css",
+          "/static/css/async/531.css",
           "/static/css/async/869.css"
         ]
       }

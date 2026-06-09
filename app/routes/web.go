@@ -13,7 +13,7 @@ func Web() {
 	login := controllers.NewLoginController()
 	userController := controllers.NewUserController()
 	overlayWebsocket := controllers.NewOverlayWebsocketController()
-
+	categoryController := controllers.NewCategoryController()
 	testOverlayController := ws.NewTestOverlayController()
 
 	routes := facades.Route()
@@ -24,6 +24,11 @@ func Web() {
 	routes.Middleware(middleware.AuthMiddleware()).Prefix("api").Group(func(router route.Router) {
 		router.Get("users", userController.Index)
 		router.Get("user", userController.User)
+
+		router.Prefix("category").Group(func(router route.Router) {
+			router.Get("", categoryController.Index)
+		})
+
 	})
 
 	routes.Static("public", "./public")

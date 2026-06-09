@@ -16,21 +16,24 @@ export interface SwitchProps extends Omit<SwitchFieldProps, 'children'> {
     color?: 'facebook' | 'success' | 'danger';
 }
 import css from "../module/switch.module.css"
-import type { ReactNode } from "react";
+import { useId, type ReactNode } from "react";
+import clsx from "clsx";
 export const Switch = ({
     children,
     description,
     errorMessage,
     size = 'md',
+    name,
+    className,
     color = 'facebook',
     ...props
 }: {
     children?: ReactNode
 } & Omit<SwitchProps, "children">) => {
     return (
-        <SwitchField  {...props} className={css["fb-switch-field"]}>
+        <SwitchField   {...props} name={name} className={clsx(css["fb-switch-field"], className)}>
             <div className={css["fb-switch-text-container"]}>
-                {children ? <Label className={css["fb-switch-label"]}>{children}</Label> : null}
+                {children ? <Label htmlFor={name} className={css["fb-switch-label"]}>{children}</Label> : null}
                 {description && (
                     <Text slot="description" className={css["fb-switch-description"]}>
                         {description}
@@ -39,6 +42,7 @@ export const Switch = ({
                 <FieldError className={css["fb-switch-error"]}>{errorMessage}</FieldError>
             </div>
             <SwitchButton
+                
                 className={css['fb-switch-button']}
                 data-size={size}
                 data-color={color}

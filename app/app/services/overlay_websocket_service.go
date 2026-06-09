@@ -118,9 +118,13 @@ func (c *OverlayHubType) CreateWs(ctx http.Context) http.Response {
 	}
 	//cek from token
 	var creator models.Creator
-	if err := facades.DB().Table(creator.TableName()).Select("overlay_key").Where("overlay_key", eventWebsocket.Token).FirstOr(&creator, func() error {
-		return errors.New("User Tidak Ditemukan!")
-	}); err != nil {
+	if err := facades.DB().
+		Table(creator.TableName()).
+		Select("overlay_key").
+		Where("overlay_key", eventWebsocket.Token).
+		FirstOr(&creator, func() error {
+			return errors.New("User Tidak Ditemukan!")
+		}); err != nil {
 		fmt.Println(facades.Hash().Make("password"))
 		conn.WriteJSON("Token tidak valid")
 		conn.Close()

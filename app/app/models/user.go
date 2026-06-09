@@ -18,6 +18,7 @@ type User struct {
 	IsVerifiedEmail   bool             `json:"is_verified_email" db:"is_verified_email"`
 	WhatsappNumber    *string          `json:"whatsapp_number" db:"whatsapp_number"`
 	IsVerifiedAccount bool             `json:"is_verified_account" db:"is_verified_account"`
+	Creator           *Creator         `json:"creator" gorm:"foreignKey:ID;references:UserId"`
 }
 
 func (r *User) TableName() string {

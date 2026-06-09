@@ -26,8 +26,8 @@ export const LayoutMiddleware: MiddlewareFunction = async (
 ) => {
   try {
     const user: any = await http.get("api/user");
-    if (user?.user) {
-      context.set(userContext, user?.user);
+    if (user?.data) {
+      context.set(userContext, user?.data);
       await next();
       return;
     }

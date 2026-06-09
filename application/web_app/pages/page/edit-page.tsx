@@ -11,13 +11,37 @@ import { LinkFields } from "@web/core/features/profile-page/links";
 import { Modal, ModalTrigger } from "@web/core/components/modal";
 import { ModalContent } from "@web/core/components/modal/modal-content";
 import { Label } from "@web/core/components/label";
+import {
+  useAsyncValue,
+  useLoaderData,
+  type LoaderFunction,
+} from "react-router";
+import { http } from "@web/core/network/api_client";
+import { Switch } from "@web/core/components/switch";
+
+export const loader: LoaderFunction = async ({ context }) => {
+  try {
+    const category = await http.get("api/category");
+    return { category: category.data };
+  } catch (error) {
+    return { data: error };
+  }
+};
+
 export const Component = () => {
+  const {
+    user: { creator },
+  }: any = useAsyncValue();
+
   const [avatarImage, setImageSrc] = useState<string | null>(null);
   const [bannerImage, setBannerImage] = useState<string | null>(null);
   const [_, open, reset] = useFileDialog({
     accept: "image/*",
     multiple: false,
   });
+
+  const { category }: { category: any[] } = useLoaderData();
+
 
   async function uploadTriggerFunction(mode: "avatar" | "banner") {
     open().then((files) => {
@@ -73,7 +97,7 @@ export const Component = () => {
             maxLength={90}
             label="Nama"
             placeholder="Nama Lengkap"
-            value={"Ahmad Stefani"}
+            value={creator?.name}
             inputSize="xs"
           />
           <div>
@@ -81,27 +105,39 @@ export const Component = () => {
               placeholder="Username"
               prefix={"https://buatjajan.com"}
               label="Username"
-              value={"@ahmadstefani"}
+              value={creator?.username}
               isClearable
               inputSize="xs"
             />
           </div>
-          <Select size="xs" label="Kategori Kreator">
-            <SelectItem>Programming</SelectItem>
-            <SelectItem>Cosplayer</SelectItem>
-            <SelectItem>Indonesia</SelectItem>
-            <SelectItem>Malaysya</SelectItem>
-            <SelectItem>Bekasi</SelectItem>
-            <SelectItem>Djakarta</SelectItem>
-            <SelectItem>Malaysya</SelectItem>
+          <Select value={creator?.creator_category_id} shouldCloseOnSelect size="xs" label="Kategori Kreator">
+            {category.length > 0
+              ? category.map((e: any) => {
+                return <SelectItem id={e.id}>{e.name}</SelectItem>;
+              })
+              : null}
           </Select>
           <Textarea
             label="Bio"
+
+            value={creator?.bio}
             placeholder="Tentang Kamu"
             inputSize="xs"
             maxLength={1000}
           />
+          <Textarea
+            label="Description"
 
+            value={creator?.about}
+            placeholder="Tentang Kamu"
+            inputSize="xs"
+            maxLength={1000}
+          />
+          <div className="max-w-sm">
+            <Switch className={"[label]:text-xs"} name="wks" size="sm" isSelected={creator?.is_adult_content}>Is Adult Content</Switch>
+            <Switch className={"[label]:text-xs"} name="swks" size="sm" isSelected={creator?.must_login_before_gift}>Harus Login Sebelum Gift</Switch>
+            <Switch className={"[label]:text-xs"} name="swks" size="sm" isSelected={creator?.recive_gifts}>Terima Gift</Switch>
+          </div>
           <div className="flex flex-col items-start">
             <div className="mb-1">
               <Label>Social Media Link</Label>
